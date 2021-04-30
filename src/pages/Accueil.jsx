@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import Navigateur from '../components/Navigation'
+import Navigation from '../components/Navigation'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const Accueil =()=> {
     
         return (
-            <div>
-                
+            <div className="container-fluid">
+                <Navigation/>
             </div>
         )
     
