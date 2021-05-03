@@ -5,7 +5,8 @@ import './components.css';
 
 export default function Menu() {
      return (
-<nav className="navbar navbar-expand-lg navbar-light bg-light">
+         <div>
+<nav className="navbar navbar-expand-sm fixed navbar-dark bg-dark">
     <div className="container-fluid">       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -24,7 +25,7 @@ export default function Menu() {
         <input type="button" value="Search" className= "btn btn-outline-success"/>
     </form>  
 </nav>
-
+</div>
 )
  }
  

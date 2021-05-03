@@ -1,10 +1,15 @@
-import React from 'react'
+import React from 'react';
+import Actualite from './Actualite'
+import CollectionImg from './CollectionImage'
+import CardList from './CardList'
+
 
 export default function News() {
     return (
         <div>
-            <h1>The News </h1>
-            <h1>The News </h1>
+          <Actualite/>   
+            <CardList/>
+          <CollectionImg/>
         </div>
     )
 }
