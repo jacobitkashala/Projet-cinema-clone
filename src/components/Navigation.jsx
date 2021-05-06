@@ -9,11 +9,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function Navigation() {
   return (
             <BrowserRouter>
-                
                     <Menu/>
                     <Route exact path="/" component={News}/>
-                    <Route  strict path="/Collection" component={Collection}  />
-                   
+                    <Route  strict path="/Collection" component={Collection}  />       
             </BrowserRouter>
   );
 }

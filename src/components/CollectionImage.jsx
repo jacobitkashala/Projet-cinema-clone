@@ -9,12 +9,14 @@ export default function CollectionImage() {
     return (
     <>
     <h1>Romatique</h1>
-    <div
-    id="carouselBasicExample"
-    className="carousel slide carousel-fade"
-    data-mdb-ride="carousel">
-  
-  <div className="carousel-indicators">
+   
+<div
+  id="carouselBasicExample"
+  class="carousel slide carousel-fade"
+  data-mdb-ride="carousel"
+>
+
+  <div class="carousel-indicators">
     <button
       type="button"
       data-mdb-target="#carouselBasicExample"
@@ -37,62 +39,67 @@ export default function CollectionImage() {
     ></button>
   </div>
 
+ 
   <div className="carousel-inner">
-    <div classclassName="carousel-item active">
+   
+    <div className="carousel-item active">
       <img
         src="https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg"
-        class="d-block w-100"
+        className="d-block w-100"
         alt="..."
       />
-      <div className="carousel-caption d-none d-md-block">
+      <div class="carousel-caption d-none d-md-block">
         <h5>First slide label</h5>
         <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
       </div>
     </div>
 
-    <div className="carousel-item">
+   
+    <div class="carousel-item">
       <img
         src="https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg"
         class="d-block w-100"
         alt="..."
       />
-      <div className="carousel-caption d-none d-md-block">
+      <div class="carousel-caption d-none d-md-block">
         <h5>Second slide label</h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       </div>
     </div>
-    <div className="carousel-item">
+
+    
+    <div class="carousel-item">
       <img
         src="https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg"
         class="d-block w-100"
         alt="..."
       />
-      <div className="carousel-caption d-none d-md-block">
+      <div class="carousel-caption d-none d-md-block">
         <h5>Third slide label</h5>
         <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
       </div>
     </div>
   </div>
+
  
   <button
-    className="carousel-control-prev"
+    class="carousel-control-prev"
     type="button"
     data-mdb-target="#carouselBasicExample"
     data-mdb-slide="prev"
   >
-    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
   <button
-    className="carousel-control-next"
+    class="carousel-control-next"
     type="button"
     data-mdb-target="#carouselBasicExample"
     data-mdb-slide="next"
   >
-    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-    <span className="visually-hidden">Next</span>
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
   </button>
-</div>     
-    
+</div> 
     </>)
 }

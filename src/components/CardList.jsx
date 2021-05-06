@@ -7,6 +7,7 @@ export default function CardList() {
             <CardFilm/>
             <CardFilm/>
             <CardFilm/>
+            <CardFilm/>
         </div>
     )
 }

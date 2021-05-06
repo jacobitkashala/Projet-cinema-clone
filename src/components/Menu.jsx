@@ -11,7 +11,7 @@ export default function Menu() {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <NavLink className="navbar-brand" to="/">News</NavLink>
+                    <NavLink className="navbar-brand" to="/index">News</NavLink>
                 </li>
                 <li class="nav-item ">
                 <NavLink className="navbar-brand" to="/Collection">Collection</NavLink>
