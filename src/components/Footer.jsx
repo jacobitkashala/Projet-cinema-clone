@@ -25,9 +25,7 @@ export default function Footer() {
                   </div>
                 </div>
                 <div className="col-auto">
-                  <button className="btn btn-outline-light btn--color mb-4">
-                    Subscribe
-                  </button>
+                  <input type="button" value="Subscribe" className="btn  btn--color mb-4"/>
                 </div>
               </div>
             </form>

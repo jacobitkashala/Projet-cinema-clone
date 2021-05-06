@@ -1,19 +1,34 @@
-nav.navbar {
+
+nav.parentnav{
   position: fixed;
   z-index: 99;
   width: 99%;
 }
+nav.enfant {
+  position: fixed;
+  max-width: 100%!important;
+  margin-top: 1rem;
+  font-weight: none;
+  font-weight: 800;
+
+}
 nav.navbar-expand-sm {
   padding-top: 30px;
+
 }
-.active {
+a.active {
   border-bottom: 5px solid #e63922;
+  transition: all .5s ease;;
+}
+a.current-sous{
+  color: #e63922;
 }
 .navbar {
   padding-bottom: 0;
 }
 form.d-flex {
   padding-bottom: 25px;
+  margin-right: 20px;
 }
 h1 {
   color: #fff;
@@ -64,11 +79,7 @@ li.breadcrumb-item a {
   text-decoration: none;
   color: #fff;
 }
-nav.navbar-sous {
-  margin-top: 5.7rem;
-  color: #fff;
-  font-weight: none;
-}
+
 img{
   object-fit: cover;
 }

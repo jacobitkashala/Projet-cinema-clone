@@ -3,7 +3,7 @@
     margin-top: 5% !important;
     border-top: solid 4px #fff !important;
 }
-button.btn--color{
+input.btn--color{
     background: #ffcd00;
     color:#000;
     border: none;

@@ -10,7 +10,7 @@ import Footer from './Footer';
 export default function News() {
     return (
         <div>
-            <SousMenu/>
+            {/* <SousMenu/> */}
             <Actualite/>   
             <CardList/>
             <CollectionImg/>
