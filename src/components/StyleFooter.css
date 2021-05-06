@@ -1,0 +1,25 @@
+.contenairefooter{
+    background-color: #28292b !important;
+    margin-top: 5% !important;
+    border-top: solid 4px #fff !important;
+}
+input.btn--color{
+    background: #ffcd00;
+    color:#000;
+    border: none;
+    margin-left:-30px ;
+    padding-bottom:8px ;
+}
+Section.link-reseaux a{
+     border:none;
+     transition: all 0.5 ease;
+}
+Section.link-reseaux a :hover{
+    border:none;
+    transform: scale(1.2);
+}
+a.present{ 
+    background: rgba(0, 0, 0, 0.2);
+    font-size: 2rem;
+    font-family: "roboto",sans-serif;
+}

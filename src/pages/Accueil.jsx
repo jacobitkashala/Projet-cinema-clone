@@ -1,8 +1,13 @@
 import React, { Component } from 'react'
+
 import Navigation from '../components/Navigation'
+import NavigationSous from '../components/NavigationSous'
 import Actualite from '../components/Actualite'
-import ColectionImage from '../components/CollectionImage'
+import Footer from '../components/Footer'
+
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '@fortawesome/fontawesome-free/css/all.css';
+
 
 
 const Accueil =()=> {
@@ -10,7 +15,9 @@ const Accueil =()=> {
         return (
             <div className="container-fluid">
                 <Navigation/>
-              
+                <NavigationSous/>
+
+                <Footer/>
                 {/* <ColectionImage/> */}
 
             </div>

@@ -1,7 +1,11 @@
 *{
+  box-sizing: border-box;
   padding: 0px;
   margin: 0px;
-  background-color: #212121;
+  /*    ///212121;212529 */
+  background-color: #212529;
+  color: #fff;
+  font-family: 'Roboto';
 }
 body {
   margin: 0;
