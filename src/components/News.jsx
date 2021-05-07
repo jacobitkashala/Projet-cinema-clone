@@ -5,12 +5,14 @@ import CardList from './CardList';
 import SousMenu from './Menuenf';
 import Heroset from './Heroset';
 import Footer from './Footer';
+import {useGetData} from '../useComponent/UseStateall';
 
 
 export default function News() {
+    
     return (
         <div>
-            {/* <SousMenu/> */}
+           
             <Actualite/>   
             <CardList/>
             <CollectionImg/>
