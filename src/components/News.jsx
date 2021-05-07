@@ -1,24 +1,18 @@
-import React from 'react';
+import React,{ useCallback } from 'react';
 import Actualite from './Actualite';
 import CollectionImg from './CollectionImage';
 import CardList from './CardList';
-import SousMenu from './Menuenf';
 import Heroset from './Heroset';
-import Footer from './Footer';
-import {useGetData} from '../useComponent/UseStateall';
-
+import {useGetData} from '../useComponent/UseStateAll';
 
 export default function News() {
     
     return (
-        <div>
-           
-            <Actualite/>   
+        <div>  
+            <Actualite />   
             <CardList/>
             <CollectionImg/>
-            <Heroset/>
-           
-            
+            <Heroset/>  
         </div>
     )
 }

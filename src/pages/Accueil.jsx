@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 
-import Navigation from '../components/Navigation'
-import NavigationSous from '../components/NavigationSous'
-import Actualite from '../components/Actualite'
-import Footer from '../components/Footer'
+import Navigation from '../components/Navigation';
+import NavigationSous from '../components/NavigationSous';
+import Footer from '../components/Footer';
+import {useGetData} from '../useComponent/UseStateAll';
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.css';
@@ -11,13 +12,15 @@ import '@fortawesome/fontawesome-free/css/all.css';
 
 
 const Accueil =()=> {
-    
+    // const [,data]=useGetData();
+     
         return (
             <div className="container-fluid">
-                <Navigation/>
-                <NavigationSous/>
-
-                <Footer/>
+               
+                    <Navigation/>
+                    <NavigationSous/>
+               
+                    <Footer/>
                 {/* <ColectionImage/> */}
 
             </div>

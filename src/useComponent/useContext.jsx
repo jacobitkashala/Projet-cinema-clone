@@ -1,4 +1,4 @@
-import React,{useContext} from 'react';
+import React from 'react';
 
-export const contexDateMoviePopular = useContext([data,loader]);
+export const contexDateMoviePopular =React.createContext([]);
 
