@@ -1,38 +1,35 @@
-import React ,{ useCallback } from "react";
+import React, { useCallback, useState,useContext } from "react";
 import img3 from "../image/hero1.jpg";
 import * as mdb from "mdb-ui-kit"; // lib
 import { Input } from "mdb-ui-kit"; // module
-import {useGetData} from '../useComponent/UseStateAll';
+import {contexDateMoviePopular} from "../useComponent/useContext"
 
 
 export default function Hero() {
-  const url="https://api.themoviedb.org/3/movie/popular?api_key=c8697268acc5406f1d3c61343bbfd606";
-  const [data,load] = useCallback(useGetData(url),url);
-  const firstElement = data.shift(); 
-    console.log(load)
-   console.log("News");
-  //let Element=Array.of(firstElement) backdrop_path,poster_path,release_date,title,original_language
-   
-  //  const {title} = firstElement;
-   
-    //console.dir(props);
-    return (
-  
+  const movipopular = useContext(contexDateMoviePopular);
+  const {page, results, total_pages, total_results}=movipopular ;
+  let firstMovie={};
+
+  if(results !== undefined){
+    firstMovie=results.shift();
+  }
+  return (
     <div className="container-fluid">
       <div
-        className="p-5 text-center bg-image col-sm-11"
+        className="p-5 bg-image col-sm-11"
         style={{
-          paddingBottom: '10px',
-          background: "url(" + `${img3}` + ")  no-repeat",
-          height: "100vh",
+          paddingBottom: "10px",
+          background: "url(https://image.tmdb.org/t/p/original/"+`${firstMovie.poster_path}`+") no-repeat  left 100% / 100% 100%  border-box",
+          height: "90vh",
           width: "97vw",
         }}
+
       >
         <div className="d-flex row w-25 dflexrow">
-          <div className="text-white p-2 col-sm-3">
-            <h3 className="mb-2 h3 ">Titre:</h3>
-            <h4 className="mb-2">Minute:</h4>
-            <h4 className="mb-2">Niveau:</h4>
+          <div className="text-white  col-sm-10">
+            <h3 className="mb-2 h3 ">Titre: {firstMovie.title}</h3>
+            <h4 className="mb-2">Date de Soritie: {firstMovie.release_date}</h4>
+          
             <a
               className="btn btn-outline-light btn-sm-5"
               href="#!"

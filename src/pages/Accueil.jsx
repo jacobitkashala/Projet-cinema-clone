@@ -1,31 +1,25 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-import Navigation from '../components/Navigation';
-import NavigationSous from '../components/NavigationSous';
-import Footer from '../components/Footer';
-import {useGetData} from '../useComponent/UseStateAll';
+import Navigation from "../components/Navigation";
+import NavigationSous from "../components/NavigationSous";
+import Footer from "../components/Footer";
+import { useGetData } from "../useComponent/UseStateAll";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+import "@fortawesome/fontawesome-free/css/all.css";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '@fortawesome/fontawesome-free/css/all.css';
+const Accueil = () => {
+  
 
+  return (
+    <div className="container-fluid">
+      <Navigation />
+      <NavigationSous />
+      <Footer />
+      {/* <ColectionImage/> */}
+    </div>
+  );
 
+};
 
-const Accueil =()=> {
-    // const [,data]=useGetData();
-     
-        return (
-            <div className="container-fluid">
-               
-                    <Navigation/>
-                    <NavigationSous/>
-               
-                    <Footer/>
-                {/* <ColectionImage/> */}
-
-            </div>
-        )
-    
-}
-
-export default Accueil
+export default Accueil;
