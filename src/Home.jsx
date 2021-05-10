@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import 'react-bootstrap';
 import Acceuil from "./pages/Accueil";
 import Load from "./components/Loader";
 import { contexDateMoviePopular } from "./useComponent/useContext";

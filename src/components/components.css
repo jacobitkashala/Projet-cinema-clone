@@ -96,9 +96,22 @@ li.breadcrumb-item a {
 div.image-film {
   width: 100%;
 }
+.infomovie{
+  position: absolute;
+
+  background-color: transparent!important;
+   margin-left:5vw;
+   margin-top: -10vh; 
+  z-index: 4;
+}
+.bgtransparent{
+  background-color: transparent;
+}
+.topmoviefirst{
+  display: flex;
+}
 img {
   object-fit: cover;
-  width: auto;
 }
 div.container-heroset {
   width: 98%;

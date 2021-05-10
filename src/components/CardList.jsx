@@ -3,6 +3,7 @@ import CardFilm from "./CardFilm";
 import { contexDateMoviePopular } from "../useComponent/useContext";
 
 export default function CardList() {
+  
   const movipopular = useContext(contexDateMoviePopular);
 
   const { page, results, total_pages, total_results } = movipopular;
@@ -21,7 +22,7 @@ export default function CardList() {
   return (
     <div className="cardlist">
         {
-            treeMovies.map((movie,index)=>(
+          treeMovies.map((movie,index)=>(
             <CardFilm key={index} movie={movie} />
             )
           )

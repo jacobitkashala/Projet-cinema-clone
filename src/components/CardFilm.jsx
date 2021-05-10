@@ -5,11 +5,7 @@ import { Input } from "mdb-ui-kit";
 
 export default function CardFilm({ movie }) {
   const { adult, poster_path, title, release_date, overview } = movie;
-  // if(movie !== undefined){
-  // {adult,poster_path,title,release_date,overview }=movie;
-  // }
-  //https://image.tmdb.org/t/p/original/"+`${firstMovie.poster_path}`+") no-repeat  left 100% / 100% 100%  border-box",
-  //adult,poster_path,title,release_date,overview
+  
   return (
     <div className="contenaire-card card-presentation">
       <div className="card col-sm-4">
