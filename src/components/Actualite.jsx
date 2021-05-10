@@ -19,16 +19,15 @@ export default function Hero() {
         <div className="carousel-center  ">
           <img
             style={{
-              height: "70vh",
+              height: "80vh",
               position: "relative",
               width: "80vw",
               top: "15Vh",
               left:"5vw",
-              transform:"translatey(-50)"
+              transform:"translatey(-50)",
             }}
-            src={`https://image.tmdb.org/t/p/original/${firstMovie.poster_path}`}
+            src={img3}
             alt=""
-            srcset=""
           />
         </div>
         <div className="d-flex row w-25 infomovie">

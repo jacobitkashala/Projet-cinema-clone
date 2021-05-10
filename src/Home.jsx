@@ -1,34 +1,26 @@
 import React, { useEffect, useState } from "react";
+import {BrowserRouter,Route,Switch} from 'react-router-dom';
+
 import 'react-bootstrap';
-import Acceuil from "./pages/Accueil";
-import Load from "./components/Loader";
-import { contexDateMoviePopular } from "./useComponent/useContext";
-import axios from "axios";
-import News from "./components/News";
+import PageShow from "./pages/PageShow";
+import PagePageShowDetail from "./pages/PagePageShowDetail";
 
 const Home = () => {
-  const [movieTop, setMovieTop] = useState([]);
-
-  useEffect(() => {
-      const getPopularMovies = async () => {
-        const popularMovies = await axios(
-          "https://api.themoviedb.org/3/movie/popular?api_key=c8697268acc5406f1d3c61343bbfd606"
-        );
-        setMovieTop(popularMovies.data);
-      };
-      getPopularMovies();  
-    }, []);
-   
-
-  return (
-    <div> 
-      
-        <contexDateMoviePopular.Provider value={movieTop}>
-          <Acceuil />
-        </contexDateMoviePopular.Provider>
   
 
-    </div>
+  return (
+    <main> 
+      
+        {/* <contexDateMoviePopular.Provider value={movieTop}>
+        </contexDateMoviePopular.Provider> */}
+         <Switch>
+           <Route path="/" component={PageShow} />
+           <Route path="/movie/:id" component={PagePageShowDetail} />
+         </Switch>
+  
+  
+
+    </main>
   );
 };
 export default Home;

@@ -8,11 +8,9 @@ import { useGetData } from "../useComponent/UseStateAll";
 export default function News() {
   return (
     <div>
-      <Actualite />
-      <h2 className={{ color: "#fff" }}>Action </h2>
+      {/* <Actualite /> */}
       <CardList />
-      <h2> Romatique</h2>
-      <CollectionImg />
+      {/* <CollectionImg /> */}
       <Heroset />
     </div>
   );

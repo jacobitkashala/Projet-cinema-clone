@@ -190,8 +190,13 @@ div.card-body {
     background-size: cover !important;
     background-position: center !important;
   }
+  div.contenair-cardlist{
+    position: relative;
+    top:30vh;
+    /* max-width:100%; */
+  }
   div.cardlist {
-    margin-top: 5px;
+    margin-top: 20vh;
     margin-bottom: 5px;
     display: flex;
     flex-direction: column;

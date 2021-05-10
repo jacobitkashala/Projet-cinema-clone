@@ -3,7 +3,6 @@ import CardFilm from "./CardFilm";
 import { contexDateMoviePopular } from "../useComponent/useContext";
 
 export default function CardList() {
-  
   const movipopular = useContext(contexDateMoviePopular);
 
   const { page, results, total_pages, total_results } = movipopular;
@@ -14,19 +13,14 @@ export default function CardList() {
     reversedMovies = results.reverse();
     treeMovies = reversedMovies.filter((movie, index) => index <= 2);
   }
-
-  ///console.log(treeMovies);
-
- 
-
   return (
-    <div className="cardlist">
-        {
-          treeMovies.map((movie,index)=>(
-            <CardFilm key={index} movie={movie} />
-            )
-          )
-          }
+    <div className="contenaire">
+    <h2>TITRE </h2>
+      <div className="cardlist ">
+        {treeMovies.map((movie, index) => (
+          <CardFilm key={index} movie={movie} />
+        ))}
       </div>
+    </div>
   );
 }
