@@ -1,25 +1,17 @@
-import React, { useEffect, useState } from "react";
-import {BrowserRouter,Route,Switch} from 'react-router-dom';
-
-import 'react-bootstrap';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
+import "react-bootstrap";
 import PageShow from "./pages/PageShow";
 import PagePageShowDetail from "./pages/PagePageShowDetail";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Home = () => {
-  
-
   return (
-    <main> 
-      
-        {/* <contexDateMoviePopular.Provider value={movieTop}>
-        </contexDateMoviePopular.Provider> */}
-         <Switch>
-           <Route path="/" component={PageShow} />
-           <Route path="/movie/:id" component={PagePageShowDetail} />
-         </Switch>
-  
-  
-
+    <main className="container">
+      <Switch>
+        <Route path="/" component={PageShow} />
+        <Route path="/movie/:id" component={PagePageShowDetail} />
+      </Switch>
     </main>
   );
 };

@@ -1,15 +1,11 @@
 import React from "react";
+import Listgenre from "../componentShow/ListGenre";
 
 export default function PageShow() {
-  
-
-  
-
-  // let movieRomatics = [];
-
-  
   return (
     <div>
+     
+        <Listgenre/>
       
     </div>
   );

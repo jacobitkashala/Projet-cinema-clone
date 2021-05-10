@@ -7,7 +7,8 @@ export default function SlideHero() {
   const [play, setplay] = useState([]);
   const url =
     "https://api.themoviedb.org/3/movie/now_playing?api_key=c8697268acc5406f1d3c61343bbfd606&language=en-US&page=1";
-  const restDataSource = new RestDataSource(url);
+  
+    const restDataSource = new RestDataSource(url);
 
   useEffect(function () {
     restDataSource.getData((data) => {

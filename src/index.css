@@ -20,3 +20,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+/**comShop**/
+
+.list-inline-item .btn-outline-info{
+  color: #5a6060;
+ border: 1px solid #5a6060;
+ margin-bottom: 10px;
+ border-radius: 25px;
+ font-weight: 500;
+}
+.list-inline-item .btn-outline-info:hover{
+color: #fff;
+border-color:  #fff; 
+background: transparent;
+transition:all 0.3s ease-in-out;
+
+
+}
