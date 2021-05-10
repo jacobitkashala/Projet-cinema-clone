@@ -1,6 +1,7 @@
 import React from "react";
 import Listgenre from "../componentShow/ListGenre";
 import Listmovie from "../componentShow/ListMovie";
+import Auteur from "../componentShow/Auteur";
 
 
 export default function PageShow() {
@@ -9,6 +10,8 @@ export default function PageShow() {
      
         <Listgenre/>
         <Listmovie/>
+        <Auteur/>
+
       
     </div>
   );

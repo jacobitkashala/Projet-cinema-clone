@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { RestDataSource } from "../webservice/RestDataSource";
 
-
 export default function ListGenre() {
   const genreUrl =
     "https://api.themoviedb.org/3/genre/movie/list?api_key=c8697268acc5406f1d3c61343bbfd606&language=en-US";
+
   const [genreMovie, setGenreMovie] = useState([]);
 
   const restDataSource = new RestDataSource(genreUrl);
@@ -31,24 +31,23 @@ export default function ListGenre() {
     //       );
     //     });
   }
-  
 
   return (
-      <div className="container">
-    <div className="row mt-3">
-      <h1></h1>
-      <div className="col">
-        <div className="list-inline-item">
-          <div>
-            {genres.map((item, index) => (
-              <button type="button" className="btn btn-outline-info">
-                {item.name}
-              </button>
-            ))}
+    <div className="container">
+      <div className="row mt-3">
+        <h1></h1>
+        <div className="col">
+          <div className="list-inline-item">
+            <div>
+              {genres.map((item, index) => (
+                <button type="button" className="btn btn-outline-info">
+                  {item.name}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }
