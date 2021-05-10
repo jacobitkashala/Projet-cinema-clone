@@ -1,6 +1,6 @@
-import { RestDataSource } from "../webservice/RestDataSource";
 import React, { useState, useEffect } from "react";
-import { Button } from "react-bootstrap";
+import { RestDataSource } from "../webservice/RestDataSource";
+
 
 export default function ListGenre() {
   const genreUrl =
@@ -31,7 +31,7 @@ export default function ListGenre() {
     //       );
     //     });
   }
-  console.log(genres);
+  
 
   return (
       <div className="container">
