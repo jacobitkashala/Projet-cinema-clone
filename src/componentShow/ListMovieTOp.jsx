@@ -6,25 +6,33 @@ import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 
 export default function ListMovieTOp() {
   const [listTopMovie, setListTopmovie] = useState([]);
+  const [idPage, setIdPage] = useState(1);
+  let topMovies = [];
 
-  const topMovieUrl =
-    "https://api.themoviedb.org/3/movie/top_rated?api_key=c8697268acc5406f1d3c61343bbfd606&language=en-US&page=1";
+  const urlImage = "https://image.tmdb.org/t/p/w400/";
+  const topMovieUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=c8697268acc5406f1d3c61343bbfd606&language=en-US&page=${idPage}`;
 
   const restDataSource = new RestDataSource(topMovieUrl);
 
-  const urlImage = "https://image.tmdb.org/t/p/w400/";
-
-  useEffect(function () {
-    restDataSource.getData((data) => {
-      setListTopmovie(data);
-    });
-  }, []);
-  let topMovies = [];
+  useEffect(
+    function () {
+      restDataSource.getData((data) => {
+        setListTopmovie(data);
+      });
+    },
+    [idPage]
+  );
+  const clickLefrTopMovie = () => {
+    idPage == 1 ? setIdPage() : setIdPage((d) => d - 1);
+  };
+  const clickRightTopMovie = () => {
+    idPage == 400 ? setIdPage() : setIdPage((d) => d + 1);
+  };
 
   if (listTopMovie.results !== undefined) {
     const { page, results, total_pages, total_results } = listTopMovie;
     const movies = [...results];
-    topMovies = movies.slice(0, 4).map((item, index) => {
+    topMovies = movies.slice(0, 8).map((item, index) => {
       return (
         <div className="col-md-3 col-sm-6" key={index}>
           <div className="card"></div>
@@ -61,8 +69,12 @@ export default function ListMovieTOp() {
       <div className="row mt-3">
         <div className="col">
           <div className="line">
-            <FaArrowCircleLeft className="fa" />
-            <FaArrowCircleRight className="fa" />
+            <div onClick={clickLefrTopMovie}>
+              <FaArrowCircleLeft className="fa" />
+            </div>
+            <div onClick={clickRightTopMovie}>
+              <FaArrowCircleRight className="fa" />
+            </div>
           </div>
         </div>
       </div>

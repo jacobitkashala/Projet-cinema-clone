@@ -4,24 +4,33 @@ import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 
 export default function Auteur() {
   const [persons, setPersons] = useState([]);
-
-  const auteurUrl =
-    "https://api.themoviedb.org/3/trending/person/week?api_key=c8697268acc5406f1d3c61343bbfd606";
+  const [idPage, setIdPage] = useState(1);
+  const auteurUrl =`https://api.themoviedb.org/3/trending/person/week?api_key=c8697268acc5406f1d3c61343bbfd606&page=${idPage}`;
 
   const restDataSource = new RestDataSource(auteurUrl);
   const urlImage = "https://image.tmdb.org/t/p/w400/";
 
-  useEffect(function () {
-    restDataSource.getData((data) => {
-      setPersons(data);
-    });
-  }, []);
+  useEffect(
+    function () {
+      restDataSource.getData((data) => {
+        setPersons(data);
+      });
+    },
+    [idPage]
+  );
+const clickLefrAuteur=()=>{
+  idPage == 1 ? setIdPage() : setIdPage(d=>(d-1));
 
+}
+const clickRightAuteur=()=>{
+  idPage == 400 ? setIdPage() : setIdPage(d=>(d+1));
+
+}
   let listPersons = [];
 
   if (persons.results !== undefined) {
     const { page, results, total_pages, total_results } = persons;
-    listPersons = results.slice(0, 4).map((item, index) => {
+    listPersons = results.slice(0, 8).map((item, index) => {
       return (
         <div className="col-md-3 col-sm-6 text-center" key={index}>
           <img
@@ -53,8 +62,12 @@ export default function Auteur() {
       <div className="row mt-3">
         <div className="col">
           <div className="line">
-            <FaArrowCircleLeft className="fa" />
-            <FaArrowCircleRight className="fa" />
+            <div onClick={clickLefrAuteur}>
+              <FaArrowCircleLeft className="fa" />
+            </div>
+            <div onClick={clickRightAuteur}>
+              <FaArrowCircleRight className="fa" />
+            </div>
           </div>
         </div>
       </div>
