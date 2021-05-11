@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { RestDataSource } from "../webservice/RestDataSource";
 import ReactStars from "react-rating-stars-component";
+import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 
 export default function ListMovieTOp() {
   const [listTopMovie, setListTopmovie] = useState([]);
@@ -55,6 +56,14 @@ export default function ListMovieTOp() {
           <p className="font-weight-bold" style={{ color: "#5a606b" }}>
             TOP MOVIE
           </p>
+        </div>
+      </div>
+      <div className="row mt-3">
+        <div className="col">
+          <div className="line">
+            <FaArrowCircleLeft className="fa" />
+            <FaArrowCircleRight className="fa" />
+          </div>
         </div>
       </div>
       <div className="row mt-3">{topMovies}</div>

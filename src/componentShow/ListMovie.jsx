@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 import { RestDataSource } from "../webservice/RestDataSource";
 import ReactStars from "react-rating-stars-component";
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
-//{ isClick, containsGenreMovies }
-export default function ListMovie({isClick,containsGenreData}) {
-  
+
+export default function ListMovie({ containsGenreData, isClick }) {
   console.log(isClick);
   console.log(containsGenreData);
   const listMovieUrl =
@@ -13,7 +12,42 @@ export default function ListMovie({isClick,containsGenreData}) {
 
   const urlImage = "https://image.tmdb.org/t/p/w400/";
   const [listMovie, setListMovie] = useState([]);
+
   const restDataSource = new RestDataSource(listMovieUrl);
+
+  const showListMovie = (containsData) => {
+    let listMovies = [];
+    if (containsData.results != undefined) {
+      const { page, results, total_pages, total_results } = containsGenreData;
+      const movies = [...results];
+
+      listMovies = movies.slice(0, 4).map((item, index) => {
+        return (
+          <div className="col-md-3 col-sm-6" key={index}>
+            <div className="card"></div>
+            <Link to={`/movie/${item.id}`}>
+              <img
+                className="img-fluid"
+                src={urlImage + item.poster_path}
+                alt={item.title}
+              />
+            </Link>
+            <div className="mt-3">
+              <h5 style={{ fontWeight: "border" }}>{item.title} </h5>
+              <p> {item.vote_average}</p>
+              <ReactStars
+                count={item.vote_average}
+                size={20}
+                activeColor="#f4c10f"
+                // color={"#f4c10f"}
+              ></ReactStars>
+            </div>
+          </div>
+        );
+      });
+    }
+    return listMovies;
+  };
 
   useEffect(function () {
     restDataSource.getData((data) => {
@@ -22,10 +56,11 @@ export default function ListMovie({isClick,containsGenreData}) {
   }, []);
 
   let movieList = [];
+  let movieListGenre = showListMovie(containsGenreData);
   if (listMovie.results !== undefined) {
     const { page, results, total_pages, total_results } = listMovie;
     const movies = [...results];
-
+    //console.log(results);
     movieList = movies.slice(0, 4).map((item, index) => {
       return (
         <div className="col-md-3 col-sm-6" key={index}>
@@ -62,9 +97,8 @@ export default function ListMovie({isClick,containsGenreData}) {
           </div>
         </div>
       </div>
-      <div className="row mt-3">
-       { movieList }
-      </div>
+
+      <div className="row mt-3">{ isClick?movieListGenre : movieList}</div>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { RestDataSource } from "../webservice/RestDataSource";
+import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 
 export default function Auteur() {
   const [persons, setPersons] = useState([]);
@@ -47,6 +48,14 @@ export default function Auteur() {
           <p className="font-weight-bold" style={{ color: "#5a606b" }}>
             TREDING PERSONS ON THIS WEEK
           </p>
+        </div>
+      </div>
+      <div className="row mt-3">
+        <div className="col">
+          <div className="line">
+            <FaArrowCircleLeft className="fa" />
+            <FaArrowCircleRight className="fa" />
+          </div>
         </div>
       </div>
       <div className="row mt-3">{listPersons}</div>
