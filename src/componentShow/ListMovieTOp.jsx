@@ -2,31 +2,28 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { RestDataSource } from "../webservice/RestDataSource";
 import ReactStars from "react-rating-stars-component";
-import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
-//{ isClick, containsGenreMovies }
-export default function ListMovie({isClick,containsGenreData}) {
-  
-  console.log(isClick);
-  console.log(containsGenreData);
-  const listMovieUrl =
-    "https://api.themoviedb.org/3/discover/movie?api_key=c8697268acc5406f1d3c61343bbfd606&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate";
+
+export default function ListMovieTOp() {
+  const [listTopMovie, setListTopmovie] = useState([]);
+
+  const topMovieUrl =
+    "https://api.themoviedb.org/3/movie/top_rated?api_key=c8697268acc5406f1d3c61343bbfd606&language=en-US&page=1";
+
+  const restDataSource = new RestDataSource(topMovieUrl);
 
   const urlImage = "https://image.tmdb.org/t/p/w400/";
-  const [listMovie, setListMovie] = useState([]);
-  const restDataSource = new RestDataSource(listMovieUrl);
 
   useEffect(function () {
     restDataSource.getData((data) => {
-      setListMovie(data);
+      setListTopmovie(data);
     });
   }, []);
+  let topMovies = [];
 
-  let movieList = [];
-  if (listMovie.results !== undefined) {
-    const { page, results, total_pages, total_results } = listMovie;
+  if (listTopMovie.results !== undefined) {
+    const { page, results, total_pages, total_results } = listTopMovie;
     const movies = [...results];
-
-    movieList = movies.slice(0, 4).map((item, index) => {
+    topMovies = movies.slice(0, 4).map((item, index) => {
       return (
         <div className="col-md-3 col-sm-6" key={index}>
           <div className="card"></div>
@@ -43,8 +40,7 @@ export default function ListMovie({isClick,containsGenreData}) {
             <ReactStars
               count={item.vote_average}
               size={20}
-              activeColor="#f4c10f"
-              // color={"#f4c10f"}
+              color1={"#f4c10f"}
             ></ReactStars>
           </div>
         </div>
@@ -56,16 +52,12 @@ export default function ListMovie({isClick,containsGenreData}) {
     <div>
       <div className="row mt-3">
         <div className="col">
-          <div className="line">
-            <FaArrowCircleLeft className="fa" />
-            <FaArrowCircleRight className="fa" />
-          </div>
+          <p className="font-weight-bold" style={{ color: "#5a606b" }}>
+            TOP MOVIE
+          </p>
         </div>
       </div>
-      <div className="row mt-3">
-       { movieList }
-      </div>
+      <div className="row mt-3">{topMovies}</div>
     </div>
   );
 }
-// {isClick ? movieList : containsGenreMovies}

@@ -19,7 +19,6 @@ export default function Auteur() {
   let listPersons = [];
 
   if (persons.results !== undefined) {
-    // listPersons = [...persons];
     const { page, results, total_pages, total_results } = persons;
     listPersons = results.slice(0, 4).map((item, index) => {
       return (
@@ -39,8 +38,18 @@ export default function Auteur() {
         </div>
       );
     });
-    console.log(persons);
   }
 
-  return <div className="row mt-3">{listPersons}</div>;
+  return (
+    <div>
+      <div className="row mt-3">
+        <div className="col">
+          <p className="font-weight-bold" style={{ color: "#5a606b" }}>
+            TREDING PERSONS ON THIS WEEK
+          </p>
+        </div>
+      </div>
+      <div className="row mt-3">{listPersons}</div>
+    </div>
+  );
 }

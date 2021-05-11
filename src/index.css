@@ -22,18 +22,33 @@ code {
 }
 /**comShop**/
 
-.list-inline-item .btn-outline-info{
+.list-inline-item .btn-outline-info {
   color: #5a6060;
- border: 1px solid #5a6060;
- margin-bottom: 10px;
- border-radius: 25px;
- font-weight: 500;
+  border: 1px solid #5a6060;
+  margin-bottom: 10px;
+  border-radius: 25px;
+  font-weight: 500;
 }
-.list-inline-item .btn-outline-info:hover{
-color: #fff;
-border-color:  #fff; 
-background: transparent;
-transition:all 0.3s ease-in-out;
-
-
+.list-inline-item .btn-outline-info:hover {
+  color: #fff;
+  border-color: #fff;
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+}
+div.line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.fa,
+svg {
+  color: #f4c10f;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 5ms ease-out;
+}
+.fa:hover {
+  /*color: #fff;*/
+  cursor: pointer;
 }
