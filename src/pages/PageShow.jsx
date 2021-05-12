@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Listgenre from "../componentShow/ListGenre";
 import { RestDataSource } from "../webservice/RestDataSource";
+import CarouselHero from "../componentShow/CarouselHero"
 import Listmovie from "../componentShow/ListMovie";
 import Auteur from "../componentShow/Auteur";
 import ListMovieTop from "../componentShow/ListMovieTOp";
+import Footer  from "../componentShow/Footer";
+
 
 export default function PageShow() {
   const [id, setId] = useState("");
@@ -26,10 +29,12 @@ export default function PageShow() {
   };
   return (
     <div>
+      {/* <CarouselHero/> */}
       <Listgenre clickBtngenre={clickBtngenre} />
       <Listmovie containsGenreData={containsGenreData} isClick={isClick} />
       <Auteur />
       <ListMovieTop />
+      <Footer />
     </div>
   );
 }

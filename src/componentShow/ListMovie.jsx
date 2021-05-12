@@ -12,7 +12,7 @@ export default function ListMovie({ containsGenreData, isClick }) {
 
   const [listMovie, setListMovie] = useState([]);
   let pageCurrent = listMovie.page;
-  console.log(listMovie);
+  //console.log(listMovie);
 
   const restDataSource = new RestDataSource(listMovieUrl);
 
@@ -26,7 +26,7 @@ export default function ListMovie({ containsGenreData, isClick }) {
         return (
           <div className="col-md-3 col-sm-6" key={index}>
             <div className="card"></div>
-            <Link to={`/movie/${item.id}`}>
+            <Link exact to={`/movie/${item.id}`}>
               <img
                 className="img-fluid"
                 src={urlImage + item.poster_path}
@@ -40,6 +40,8 @@ export default function ListMovie({ containsGenreData, isClick }) {
                 count={item.vote_average}
                 size={20}
                 activeColor="#f4c10f"
+                color="#f4c10f"
+                
                 // color={"#f4c10f"}
               ></ReactStars>
             </div>
@@ -107,7 +109,7 @@ export default function ListMovie({ containsGenreData, isClick }) {
               <FaArrowCircleLeft className="fa" />
             </div>
             <div onClick={clickRightMovie}>
-              <FaArrowCircleRight className="fa" />
+              <FaArrowCircleRight style={{ color: "#f4c10f" }} className="fa" />
             </div>
           </div>
         </div>

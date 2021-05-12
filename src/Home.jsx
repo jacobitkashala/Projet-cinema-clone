@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <main className="container">
       <Switch>
-        <Route path="/" component={PageShow} />
+        <Route exact path="/" component={PageShow} />
         <Route path="/movie/:id" component={PagePageShowDetail} />
       </Switch>
     </main>

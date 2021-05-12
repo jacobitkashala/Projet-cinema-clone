@@ -1,5 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import "react-bootstrap-carousel";
+import "bootstrap/dist/css/bootstrap.css";
+import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
+
 import './index.css';
 import Home from './Home';
 import reportWebVitals from './reportWebVitals';

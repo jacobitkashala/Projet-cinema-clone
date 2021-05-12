@@ -42,11 +42,14 @@ div.line {
 }
 .fa,
 svg {
-  color: #f4c10f;
+  color: #f4c10f!important;
   font-size: 40px;
   font-weight: bold;
   cursor: pointer;
   transition: all 5ms ease-out;
+}
+.colore{
+  color: #f4c10f!important;
 }
 .fa:hover {
   /*color: #fff;*/
