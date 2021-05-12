@@ -6,8 +6,8 @@ import { RestDataSource } from "../webservice/RestDataSource";
 export default function PagePageShowDetail({ match }) {
   const [primaryInformation, setPrimaryInformation] = useState([]);
   const [casting, setCasting] = useState([]);
-  let idMovie = match.params;
-  //console.log(id);
+  let idMovie = match.params.id;
+  //console.log(idMovie);
   const urlPrimaryInformation = `https://api.themoviedb.org/3/movie/${idMovie}?api_key=c8697268acc5406f1d3c61343bbfd606&language=en-US`;
   const urlCastCrew = `https://api.themoviedb.org/3/movie/${idMovie}/credits?api_key=c8697268acc5406f1d3c61343bbfd606&language=en-US`;
   const restDataSourcePInfo = new RestDataSource(urlPrimaryInformation);
