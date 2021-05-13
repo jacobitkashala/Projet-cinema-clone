@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Header from "../componentShow/Header";
 import Listgenre from "../componentShow/ListGenre";
 import { RestDataSource } from "../webservice/RestDataSource";
 import CarouselHero from "../componentShow/CarouselHero"
@@ -30,6 +31,7 @@ export default function PageShow() {
   return (
     <div>
       {/* <CarouselHero/> */}
+      <Header/>
       <Listgenre clickBtngenre={clickBtngenre} />
       <Listmovie containsGenreData={containsGenreData} isClick={isClick} />
       <Auteur />

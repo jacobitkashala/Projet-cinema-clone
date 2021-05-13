@@ -1,8 +1,8 @@
 div.loanding-spinner {
-    width: 10rem;
-    height: 10rem;
+  width: 10rem;
+  height: 10rem;
   display: inline-block;
-  border: 9px solid ;
+  border: 9px solid;
   border-radius: 50%;
   border-top-color: rgb(246, 242, 3);
 
@@ -17,30 +17,30 @@ div.loanding-spinner {
     transform: rotate(360deg);
   }
 }
-div.laoding-dots{
-    margin-left:20% ;
+div.laoding-dots {
+  margin-left: 20%;
 }
-div.laoding-dots> div {
+div.laoding-dots > div {
   width: 3rem;
   height: 3rem;
   background-color: #fff;
   border-radius: 50%;
   display: inline-block;
-  animation: 1.5s bounce infinite ease-in-out both ;
+  animation: 1.5s bounce infinite ease-in-out both;
 }
-.laoding-dots .bounce{
-    animation-delay:-0.30s ;
+.laoding-dots .bounce {
+  animation-delay: -0.3s;
 }
-.laoding-dots .bounce2{
-    animation-delay:-0.15s ;
-    
+.laoding-dots .bounce2 {
+  animation-delay: -0.15s;
 }
 @keyframes bounce {
-    0%,80%,100%{
-        transform: scale(0);
-    }
-    40%{
-        transform: scale(1);
-    }
-    
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
 }
