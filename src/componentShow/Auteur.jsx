@@ -5,9 +5,9 @@ import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 export default function Auteur() {
   const [persons, setPersons] = useState([]);
   const [idPage, setIdPage] = useState(1);
-  const auteurUrl =`https://api.themoviedb.org/3/trending/person/week?api_key=c8697268acc5406f1d3c61343bbfd606&page=${idPage}`;
+  const acteurUrl =`https://api.themoviedb.org/3/trending/person/week?api_key=c8697268acc5406f1d3c61343bbfd606&page=${idPage}`;
 
-  const restDataSource = new RestDataSource(auteurUrl);
+  const restDataSource = new RestDataSource(acteurUrl);
   const urlImage = "https://image.tmdb.org/t/p/w400/";
 
   useEffect(

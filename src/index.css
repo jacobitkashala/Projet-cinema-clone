@@ -50,8 +50,26 @@ svg {
 }
 .colore{
   color: #f4c10f!important;
+
 }
 .fa:hover {
   /*color: #fff;*/
   cursor: pointer;
+}
+.play-circle{
+cursor: pointer;
+position: relative;
+top:-20vh;
+transform: translateY(-50%);
+background-color: transparent;
+}
+.movietitle{
+  font-size: 2rem;
+  font-weight: 900;
+  text-align: center;
+  margin-top: -5%;
+}
+tr.datacompanie {
+  border-bottom: #fff solid 1px;
+
 }

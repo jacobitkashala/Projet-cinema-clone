@@ -18,18 +18,6 @@ export default function ListGenre({ clickBtngenre }) {
 
   if (genreMovie.genres !== undefined) {
     genres = [...genreMovie.genres];
-
-    //const listMovie = genres.slice(0, 4).map((item, index) => {
-    //       return (
-    //         <div className="col-md-3 col-sm-6" key={index}>
-    //           <div className="card" >
-    //               <Link to={`/movie/${item.id} `}>
-    //                   <img src={item.} alt=""/>
-    //               </Link>
-    //           </div>
-    //         </div>
-    //       );
-    //     });
   }
 
   return (

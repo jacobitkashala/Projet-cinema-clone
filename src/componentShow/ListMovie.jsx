@@ -25,7 +25,6 @@ export default function ListMovie({ containsGenreData, isClick }) {
       listMovies = movies.slice(0, 8).map((item, index) => {
         return (
           <div className="col-md-3 col-sm-6" key={index}>
-            <div className="card"></div>
             <Link exact to={`/movie/${item.id}`}>
               <img
                 className="img-fluid"
@@ -41,8 +40,8 @@ export default function ListMovie({ containsGenreData, isClick }) {
                 size={20}
                 activeColor="#f4c10f"
                 color="#f4c10f"
-                
-                // color={"#f4c10f"}
+                style={{color:"#f4c10f"}}
+
               ></ReactStars>
             </div>
           </div>
