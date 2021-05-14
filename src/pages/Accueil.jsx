@@ -3,8 +3,6 @@ import React, { Component } from "react";
 import Navigation from "../components/Navigation";
 import NavigationSous from "../components/NavigationSous";
 import Footer from "../components/Footer";
-import { useGetData } from "../useComponent/UseStateAll";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.css";
 

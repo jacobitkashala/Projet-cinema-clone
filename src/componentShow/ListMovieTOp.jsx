@@ -23,10 +23,10 @@ export default function ListMovieTOp() {
     [idPage]
   );
   const clickLefrTopMovie = () => {
-    idPage == 1 ? setIdPage() : setIdPage((d) => d - 1);
+    idPage == 1 ? setIdPage(d=>(d*1)) : setIdPage((d) => d - 1);
   };
   const clickRightTopMovie = () => {
-    idPage == 400 ? setIdPage() : setIdPage((d) => d + 1);
+    idPage == 400 ? setIdPage(d=>(d*1)) : setIdPage((d) => d + 1);
   };
 
   if (listTopMovie.results !== undefined) {

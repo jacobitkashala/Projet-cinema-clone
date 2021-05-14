@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { RestDataSource } from "../webservice/RestDataSource";
+import ReactPaginate from "react-paginate";
 
 export default function ListGenre({ clickBtngenre }) {
   const genreUrl =
@@ -22,6 +23,7 @@ export default function ListGenre({ clickBtngenre }) {
 
   return (
     <div className="container">
+      {console.log("bbnnddkd")}
       <div className="row mt-3">
         <h1></h1>
         <div className="col">
@@ -33,7 +35,7 @@ export default function ListGenre({ clickBtngenre }) {
                   type="button"
                   className="btn btn-outline-info"
                   onClick={() => {
-                    clickBtngenre(item.id);
+                    clickBtngenre(item.id); //diplayMoviesWithGenre
                   }}
                 >
                   {item.name}

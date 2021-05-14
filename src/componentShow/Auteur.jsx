@@ -19,11 +19,11 @@ export default function Auteur() {
     [idPage]
   );
 const clickLefrAuteur=()=>{
-  idPage == 1 ? setIdPage() : setIdPage(d=>(d-1));
+  idPage == 1 ? setIdPage(d=>(d*1)) : setIdPage(d=>(d-1));
 
 }
 const clickRightAuteur=()=>{
-  idPage == 400 ? setIdPage() : setIdPage(d=>(d+1));
+  idPage == 400 ? setIdPage(d=>(d*1)) : setIdPage(d=>(d+1));
 
 }
   let listPersons = [];

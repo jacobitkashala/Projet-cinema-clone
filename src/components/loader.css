@@ -1,26 +1,28 @@
 div.loanding-spinner {
+  position: relative;
   width: 10rem;
   height: 10rem;
-  display: inline-block;
-  border: 9px solid;
+  /* display: inline-block; */
+  border: 10px solid;
   border-radius: 50%;
   border-top-color: rgb(246, 242, 3);
-
-  /* #ffcd40; */
-  margin-top: 10%;
-  margin-left: 20%;
-  margin-bottom: 5rem;
+  margin: 0 auto;
+  top: 30vh;
+  /* transform: translateY(30%); */
   animation: 1s sprin infinite;
 }
 @keyframes sprin {
   to {
+    transform-origin: center;
     transform: rotate(360deg);
   }
 }
-div.laoding-dots {
+/* div.laoding-dots {
   margin-left: 20%;
-}
+} */
 div.laoding-dots > div {
+  position: relative;
+  top: 30vh;
   width: 3rem;
   height: 3rem;
   background-color: #fff;

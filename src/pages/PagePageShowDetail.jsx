@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import { RestDataSource } from "../webservice/RestDataSource";
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
 import { FaArrowCircleLeft } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { Modal } from "react-bootstrap";
+
 import ReactPlay from "react-player";
 import YouTubePlayer from "react-player/youtube";
+import Loader from "../components/Loader";
 
 export default function PagePageShowDetail({ match }) {
   const [primaryInformation, setPrimaryInformation] = useState([]);
@@ -105,13 +108,12 @@ export default function PagePageShowDetail({ match }) {
       </Modal>
     );
   };
-  //
-  //console.log(primaryInformation.production_companies);
+
   return (
     <div>
-      <div>
+      <Link exact to={"/"}>
         <FaArrowCircleLeft className="fa" />
-      </div>
+      </Link>
       <div className="container">
         <div className="row mt-2 text-center">
           <MoviePlays
@@ -155,7 +157,6 @@ export default function PagePageShowDetail({ match }) {
 
         <div className="row mt-3">
           <div className="col">
-            {/* color: "#5a606b", */}
             <h2 style={{ fontWeight: "bolder" }}>GENRE</h2>
           </div>
           <ul className="list-inline">{genreLists}</ul>
@@ -163,7 +164,6 @@ export default function PagePageShowDetail({ match }) {
 
         <div className="row mt-3">
           <div className="col">
-            {/* color: "#5a606b", */}
             <h2 style={{ fontWeight: "bolder" }}>OVERVIEW:</h2>
           </div>
           <p className="">{primaryInformation.overview}</p>
@@ -171,7 +171,6 @@ export default function PagePageShowDetail({ match }) {
 
         <div className="row mt-3  ">
           <div className="col-4 ">
-            {/* color: "#5a606b", */}
             <h2 style={{ fontWeight: "bolder" }}>PRODUCTION COMPANIE:</h2>
           </div>
           <table class="table col-4 w-75 table-dark table-hover table-striped">
