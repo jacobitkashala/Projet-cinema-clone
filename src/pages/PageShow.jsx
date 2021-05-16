@@ -4,7 +4,7 @@ import Listgenre from "../componentShow/ListGenre";
 import { RestDataSource } from "../webservice/RestDataSource";
 import Listmovie from "../componentShow/ListMovie";
 import Auteur from "../componentShow/Auteur";
-import ListMovieTop from "../componentShow/ListMovieTOp";
+import TopMovies from "../componentShow/TopMovie";
 import Footer from "../componentShow/Footer";
 import Loader from "react-loader-spinner";
 import Loading from "../components/Loader";
@@ -26,7 +26,6 @@ export default function PageShow() {
       setContainsGenreData(data);
     });
   }, [id]);
-  // console.log(load);
   const clickBtngenre = (id) => {
     setIsClick(true);
     setId(id);
@@ -41,7 +40,7 @@ export default function PageShow() {
           <Listgenre clickBtngenre={clickBtngenre} />
           <Listmovie containsGenreData={containsGenreData} isClick={isClick} />
           <Auteur />
-          <ListMovieTop />
+          <TopMovies />
           {/* topmovies */}
           <Footer />
         </div>

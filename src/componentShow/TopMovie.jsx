@@ -4,7 +4,8 @@ import { RestDataSource } from "../webservice/RestDataSource";
 import ReactStars from "react-rating-stars-component";
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 
-export default function ListMovieTOp() {
+export default function TopMovies() {
+
   const [listTopMovie, setListTopmovie] = useState([]);
   const [idPage, setIdPage] = useState(1);
   let topMovies = [];

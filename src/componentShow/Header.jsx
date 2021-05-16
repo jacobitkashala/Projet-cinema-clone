@@ -39,7 +39,7 @@ export default function Header() {
             </NavLink>
           </li>
           <li class="nav-item">
-            <NavLink activeClasseName="active " exact to="Série/">
+            <NavLink activeClasseName="active " exact to="/Serie/">
               SERIE
             </NavLink>
           </li>
