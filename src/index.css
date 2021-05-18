@@ -55,6 +55,7 @@ svg {
   font-weight: bold;
   cursor: pointer;
   transition: all 5ms ease-out;
+  z-index: 10;
 }
 a {
   color: #fff !important;
@@ -143,4 +144,19 @@ span.porto{
   font-size: 1rem!important;
   color: #5a6060!important;
 
+}
+/* pagination*/
+a{
+  text-decoration: none;
+}
+ul{
+list-style: none;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+
+}
+.pagination{
+  display: flex;
+  flex-direction: row;
 }

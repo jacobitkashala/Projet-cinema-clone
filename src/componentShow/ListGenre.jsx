@@ -23,7 +23,7 @@ export default function ListGenre({ clickBtngenre }) {
 
   return (
     <div className="container">
-      {console.log("bbnnddkd")}
+     
       <div className="row mt-3">
         <h1></h1>
         <div className="col">

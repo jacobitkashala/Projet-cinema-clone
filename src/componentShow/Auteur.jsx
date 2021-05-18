@@ -5,7 +5,7 @@ import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 export default function Auteur() {
   const [persons, setPersons] = useState([]);
   const [idPage, setIdPage] = useState(1);
-  const acteurUrl =`https://api.themoviedb.org/3/trending/person/week?api_key=c8697268acc5406f1d3c61343bbfd606&page=${idPage}`;
+  const acteurUrl = `https://api.themoviedb.org/3/trending/person/week?api_key=c8697268acc5406f1d3c61343bbfd606&page=${idPage}`;
 
   const restDataSource = new RestDataSource(acteurUrl);
   const urlImage = "https://image.tmdb.org/t/p/w400/";
@@ -18,14 +18,12 @@ export default function Auteur() {
     },
     [idPage]
   );
-const clickLefrAuteur=()=>{
-  idPage == 1 ? setIdPage(d=>(d*1)) : setIdPage(d=>(d-1));
-
-}
-const clickRightAuteur=()=>{
-  idPage == 400 ? setIdPage(d=>(d*1)) : setIdPage(d=>(d+1));
-
-}
+  const clickLefrAuteur = () => {
+    idPage == 1 ? setIdPage((d) => d * 1) : setIdPage((d) => d - 1);
+  };
+  const clickRightAuteur = () => {
+    idPage == 400 ? setIdPage((d) => d * 1) : setIdPage((d) => d + 1);
+  };
   let listPersons = [];
 
   if (persons.results !== undefined) {
@@ -54,13 +52,6 @@ const clickRightAuteur=()=>{
     <div>
       <div className="row mt-3">
         <div className="col">
-          <p className="font-weight-bold" style={{ color: "#5a606b" }}>
-            TREDING PERSONS ON THIS WEEK
-          </p>
-        </div>
-      </div>
-      <div className="row mt-3">
-        <div className="col">
           <div className="line">
             <div onClick={clickLefrAuteur}>
               <FaArrowCircleLeft className="fa" />
@@ -69,6 +60,11 @@ const clickRightAuteur=()=>{
               <FaArrowCircleRight className="fa" />
             </div>
           </div>
+        </div>
+      </div>
+      <div className="row mt-3">
+        <div className="col">
+          <p className="font-weight-bold" style={{ color: "#5a606b" }}></p>
         </div>
       </div>
       <div className="row mt-3">{listPersons}</div>
