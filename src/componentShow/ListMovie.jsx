@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import noImage from "../image/Inconnue.jpg";
-import ReactPaginate from "react-paginate";
 import { RestDataSource } from "../webservice/RestDataSource";
 import ReactStars from "react-rating-stars-component";
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
@@ -9,23 +8,26 @@ import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 export default function ListMovie({ containsGenreData, isClick }) {
   const [listMovie, setListMovie] = useState([]);
   const [pageNumber, setpageNumber] = useState(1);
-  const listMovieUrl = `https://api.themoviedb.org/3/movie/now_playing?api_key=c8697268acc5406f1d3c61343bbfd606&language=en-US&page=1`;
+  const listMovieUrl = `https://api.themoviedb.org/3/movie/now_playing?api_key=c8697268acc5406f1d3c61343bbfd606&language=en-US&page=${pageNumber}`;
   const urlImage = "https://image.tmdb.org/t/p/w400/";
   let totalPage = 0;
   const restDataSource = new RestDataSource(listMovieUrl);
 
-  useEffect(function () {
-    restDataSource.getData((data) => {
-      setListMovie(data);
-    });
-  }, []);
-  console.log(listMovie);
+  useEffect(
+    function () {
+      restDataSource.getData((data) => {
+        setListMovie(data);
+      });
+    },
+    [pageNumber]
+  );
 
   const displayMovie = (movieData) => {
     let listMovies = [];
-    // console.log(movieData);
+
     if (movieData.results != undefined) {
-      const { page, results, total_pages, total_results } = movieData;
+      const { results, total_pages } = movieData;
+      totalPage = total_pages;
       const movies = [...results];
       listMovies = movies.slice(0, 8).map((item, index) => {
         let imageFont =
@@ -53,11 +55,15 @@ export default function ListMovie({ containsGenreData, isClick }) {
     return listMovies;
   };
 
-  const clickLeftMovie = () => {
-    // idPage == 1 ? setIdPage(d=>(d*1)) : setIdPage(d=>(d-1));
+  const clickPreviousMovie = () => {
+    pageNumber === 1
+      ? setpageNumber((pageCurrent) => pageCurrent * 1)
+      : setpageNumber((pageCurrent) => pageCurrent - 1);
   };
-  const clickRightMovie = () => {
-    // idPage == 1 ? setIdPage(d=>(d*1)) : setIdPage(d=>(d-1));
+  const clickNextMovie = () => {
+    pageNumber === 47
+      ? setpageNumber((pageCurrent) => pageCurrent * 1)
+      : setpageNumber((pageCurrent) => pageCurrent + 1);
   };
 
   let popularMovie = displayMovie(listMovie);
@@ -67,17 +73,19 @@ export default function ListMovie({ containsGenreData, isClick }) {
     <div>
       <div className="row mt-3">
         <div className="line">
-          <div onClick={clickLeftMovie}>
+          <div onClick={clickPreviousMovie}>
             <FaArrowCircleLeft className="fa" />
           </div>
-
-          <div onClick={clickRightMovie}>
+          <div className="paginateindice">
+            {pageNumber}/{totalPage}
+          </div>
+          <div onClick={clickNextMovie}>
             <FaArrowCircleRight style={{ color: "#f4c10f" }} className="fa" />
           </div>
         </div>
       </div>
       <div className="row mt-3">
-        <h1>Top movie</h1>
+        <h1 style={{ color: "#5a606b" }}>Film mieux côté</h1>
       </div>
       <div className="row mt-3">{popularMovie}</div>
     </div>

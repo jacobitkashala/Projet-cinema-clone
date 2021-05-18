@@ -128,42 +128,12 @@ export default function PagePageShowDetail({ match }) {
         </Link>
       </div>
       <div className="row mt-2 text-center">
-        <MoviePlays
-          style={{ backgroundColor: "transparant", color: "#000" }}
-          show={isOpen}
-          onHide={() => {
-            setIsOpen(false);
-          }}
-        ></MoviePlays>
-        <div className="col text-center">
-          <img
-            className="img-fluid"
-            src={`https://image.tmdb.org/t/p/original/${primaryInformation.backdrop_path}`}
-            alt=""
-          />
-          <div className="carosel-caption movietitle">
-            {primaryInformation.title}
-          </div>
-          <svg
-            onClick={() => {
-              setIsOpen(true);
-            }}
-            aria-hidden="true"
-            focusable="false"
-            data-prefix="fas"
-            data-icon="play-circle"
-            class="svg-inline--fa fa-play-circle fa-w-16"
-            role="img"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 512 512"
-            width="10%"
-            className="play-circle"
-          >
-            <path
-              fill="#f4c10f"
-              d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm115.7 272l-176 101c-15.8 8.8-35.7-2.5-35.7-21V152c0-18.4 19.8-29.8 35.7-21l176 107c16.4 9.2 16.4 32.9 0 42z"
-            />
-          </svg>
+        <div class="ratio ratio-16x9">
+          <iframe
+            src={`https://www.youtube.com/embed/${key}?rel=0`}
+            title="YouTube video"
+            allowfullscreen
+          ></iframe>
         </div>
       </div>
 
@@ -202,7 +172,7 @@ export default function PagePageShowDetail({ match }) {
         {actors}
       </div>
       <div className="row mt">
-      <Footer/>
+        <Footer />
       </div>
     </div>
   );

@@ -5,13 +5,13 @@ import ReactStars from "react-rating-stars-component";
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 
 export default function TopMovies() {
-
   const [listTopMovie, setListTopmovie] = useState([]);
-  const [idPage, setIdPage] = useState(1);
+  const [pageNumber, setpageNumber] = useState(1);
   let topMovies = [];
+  let totalPage = 0;
 
   const urlImage = "https://image.tmdb.org/t/p/w400/";
-  const topMovieUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=c8697268acc5406f1d3c61343bbfd606&language=en-US&page=${idPage}`;
+  const topMovieUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=c8697268acc5406f1d3c61343bbfd606&language=en-US&page=${pageNumber}`;
 
   const restDataSource = new RestDataSource(topMovieUrl);
 
@@ -21,17 +21,23 @@ export default function TopMovies() {
         setListTopmovie(data);
       });
     },
-    [idPage]
+    [pageNumber]
   );
-  const clickLefrTopMovie = () => {
-    idPage == 1 ? setIdPage(d=>(d*1)) : setIdPage((d) => d - 1);
+
+  const clickPreviousTopMovie = () => {
+    pageNumber === 1
+      ? setpageNumber((pageCurrent) => pageCurrent * 1)
+      : setpageNumber((pageCurrent) => pageCurrent - 1);
   };
-  const clickRightTopMovie = () => {
-    idPage == 400 ? setIdPage(d=>(d*1)) : setIdPage((d) => d + 1);
+  const clickNextTopMovie = () => {
+    pageNumber === 47
+      ? setpageNumber((pageCurrent) => pageCurrent * 1)
+      : setpageNumber((pageCurrent) => pageCurrent + 1);
   };
 
   if (listTopMovie.results !== undefined) {
-    const { page, results, total_pages, total_results } = listTopMovie;
+    const { results, total_pages } = listTopMovie;
+    totalPage = total_pages;
     const movies = [...results];
     topMovies = movies.slice(0, 8).map((item, index) => {
       return (
@@ -62,21 +68,24 @@ export default function TopMovies() {
     <div>
       <div className="row mt-3">
         <div className="col">
-          <p className="font-weight-bold" style={{ color: "#5a606b" }}>
-            TOP MOVIE
-          </p>
+          <div className="line">
+            <div onClick={clickPreviousTopMovie}>
+              <FaArrowCircleLeft className="fa" />
+            </div>
+            <div className="paginateindice">
+              {pageNumber}/{totalPage}
+            </div>
+            <div onClick={clickNextTopMovie}>
+              <FaArrowCircleRight className="fa" />
+            </div>
+          </div>
         </div>
       </div>
       <div className="row mt-3">
         <div className="col">
-          <div className="line">
-            <div onClick={clickLefrTopMovie}>
-              <FaArrowCircleLeft className="fa" />
-            </div>
-            <div onClick={clickRightTopMovie}>
-              <FaArrowCircleRight className="fa" />
-            </div>
-          </div>
+          <h2 className="font-weight-bold" style={{ color: "#5a606b" }}>
+            Top Film
+          </h2>
         </div>
       </div>
       <div className="row mt-3">{topMovies}</div>

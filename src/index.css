@@ -57,6 +57,16 @@ svg {
   transition: all 5ms ease-out;
   z-index: 10;
 }
+.paginateindice {
+  font-size:2rem !important;
+  font-weight: bold;
+  background-color: #fff;
+  color:  #212529;
+
+  /*background-color: #fe9d3d;
+  color: #000 !important;*/
+  border-radius: 50%; 
+}
 a {
   color: #fff !important;
   text-decoration: none !important;
@@ -140,23 +150,21 @@ div.presentation p {
   color: #5a6060;
   font-size: 1rem;
 }
-span.porto{
-  font-size: 1rem!important;
-  color: #5a6060!important;
-
+span.porto {
+  font-size: 1rem !important;
+  color: #5a6060 !important;
 }
 /* pagination*/
-a{
+a {
   text-decoration: none;
 }
-ul{
-list-style: none;
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-.pagination{
+.pagination {
   display: flex;
   flex-direction: row;
 }

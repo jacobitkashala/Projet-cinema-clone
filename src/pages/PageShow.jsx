@@ -6,7 +6,6 @@ import Listmovie from "../componentShow/ListMovie";
 import Auteur from "../componentShow/Auteur";
 import TopMovies from "../componentShow/TopMovie";
 import Footer from "../componentShow/Footer";
-import Loader from "react-loader-spinner";
 import Loading from "../components/Loader";
 
 export default function PageShow() {
