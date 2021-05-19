@@ -1,6 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "@fortawesome/fontawesome-free";
+import {
+  FaFacebookSquare,
+  FaWhatsappSquare,
+  FaGithubSquare,
+} from "react-icons/fa";
 
 export default function footer() {
   return (
@@ -81,7 +86,20 @@ export default function footer() {
         <div className="col-sm-6">
           <h2>NOS PRODUITS </h2>
         </div>
-        <div className="col-sm-6 ">Suivez-nous:</div>
+        <div className="col-sm-6 ">
+          Suivez-nous :
+          <div className="row mt-3">
+            <div>
+              <FaFacebookSquare /> : JacobitKashala
+            </div>
+            <div>
+              <FaWhatsappSquare /> : +243815824641
+            </div>
+            <div>
+              <FaGithubSquare /> : JacobitKashala
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

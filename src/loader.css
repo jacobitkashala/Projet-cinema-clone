@@ -18,8 +18,8 @@ div.loanding-spinner {
   }
 }
 /* div.laoding-dots {
-  margin-left: 20%;
-} */
+    margin-left: 20%;
+  } */
 div.laoding-dots > div {
   position: relative;
   top: 30vh;

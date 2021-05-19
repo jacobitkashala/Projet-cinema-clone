@@ -92,33 +92,6 @@ export default function PagePageShowDetail({ match }) {
       );
     });
   }
-  const MoviePlays = (props) => {
-    return (
-      <Modal
-        {...props}
-        size="lg"
-        aria-labelledby="contained-modal-titre-vcenter"
-        centred
-      >
-        <Modal.Header
-          closeButton
-          style={{ backgroundColor: "#fff", color: "#000" }}
-        >
-          <Modal.Title id="container-modal-title-vcenter">
-            {primaryInformation.title}
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body style={{ background: "#000" }}>
-          <ReactPlay
-            className="container-fluid"
-            url={`https://www.youtube.com/watch?v=${key}`}
-            playing
-            width="100%"
-          ></ReactPlay>
-        </Modal.Body>
-      </Modal>
-    );
-  };
 
   return (
     <div className="container">
