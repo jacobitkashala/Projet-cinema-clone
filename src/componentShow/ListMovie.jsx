@@ -12,7 +12,7 @@ export default function ListMovie({ containsGenreData, isClick }) {
   const urlImage = "https://image.tmdb.org/t/p/w400/";
   let totalPage = 0;
   const restDataSource = new RestDataSource(listMovieUrl);
-
+  
   useEffect(
     function () {
       restDataSource.getData((data) => {
@@ -66,9 +66,10 @@ export default function ListMovie({ containsGenreData, isClick }) {
       : setpageNumber((pageCurrent) => pageCurrent + 1);
   };
 
-  let popularMovie = displayMovie(listMovie);
-  //let movieListGenre = showListMovie(containsGenreData);
-
+  let popularMovie = isClick
+    ? displayMovie(containsGenreData)
+    : displayMovie(listMovie);
+  
   return (
     <div>
       <div className="row mt-3">

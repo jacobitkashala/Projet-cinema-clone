@@ -58,8 +58,7 @@ export default function footer() {
         >
           <h2>A propos</h2>
           <Link>
-            {" "}
-            <span className="porto">Nos réalisations </span>{" "}
+            <span className="porto">Nos réalisations </span>
           </Link>
           <Link>
             <span className="porto">Qui sommes-nous? </span>{" "}
@@ -76,7 +75,7 @@ export default function footer() {
           </div>
           <p>
             Vous pouvez vous désabonner à tout moment.on n'est pas
-            susceptibles,Promis{" "}
+            susceptibles,Promis
           </p>
         </div>
       </div>
@@ -89,14 +88,20 @@ export default function footer() {
         <div className="col-sm-6 ">
           Suivez-nous :
           <div className="row mt-3">
-            <div>
-              <FaFacebookSquare /> : JacobitKashala
+            <div style={{ color: "#f4c10f important" }}>
+              <a href="https://web.facebook.com/jacob.kashala">
+                <FaFacebookSquare />: JacobitKashala
+              </a>
             </div>
             <div>
-              <FaWhatsappSquare /> : +243815824641
+              <a href="http://">
+                <FaWhatsappSquare /> : +243815824641
+              </a>
             </div>
             <div>
-              <FaGithubSquare /> : JacobitKashala
+              <a href="https://github.com/jacobitkashala">
+                <FaGithubSquare /> : JacobitKashala
+              </a>
             </div>
           </div>
         </div>

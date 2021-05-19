@@ -5,7 +5,7 @@ import { RestDataSource } from "../webservice/RestDataSource";
 import ReactStars from "react-rating-stars-component";
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 
-export default function PopularSerie() {
+export default function PopularSerie({ containsGenreData, isClick }) {
   const [listMovie, setListMovie] = useState([]);
   const [pageNumber, setpageNumber] = useState(1);
   const listMovieUrl = `https://api.themoviedb.org/3/tv/popular?api_key=c8697268acc5406f1d3c61343bbfd606&language=en-US&page=${pageNumber}`;
@@ -66,9 +66,9 @@ export default function PopularSerie() {
       : setpageNumber((pageCurrent) => pageCurrent + 1);
   };
 
-  let popularMovie = displayMovie(listMovie);
-  //let movieListGenre = showListMovie(containsGenreData);
-
+  let popularMovie = isClick
+    ? displayMovie(containsGenreData)
+    : displayMovie(listMovie);
   return (
     <div>
       <div className="row mt-3">
@@ -85,7 +85,9 @@ export default function PopularSerie() {
         </div>
       </div>
       <div className="row mt-3">
-        <h1 style={{ color: "#5a606b" }}>Les emissions et série le mieux coté</h1>
+        <h1 style={{ color: "#5a606b" }}>
+          Les emissions et série le mieux coté
+        </h1>
       </div>
       <div className="row mt-3">{popularMovie}</div>
     </div>
