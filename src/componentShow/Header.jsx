@@ -1,11 +1,10 @@
-import React, { useRef, useState, useEffect } from "react";
-import { NavLink, Link, useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { NavLink, Link } from "react-router-dom";
 import logo from "../image/logo.png";
 import load from "../image/load1.jpeg";
 import { RestDataSource } from "../webservice/RestDataSource";
 
 export default function Header() {
-  let { data } = useParams();
   const [words, setWords] = useState("");
   const [finding, setFinding] = useState([]);
   const [opacit, setopacit] = useState(0);
@@ -17,12 +16,12 @@ export default function Header() {
       setFinding(data);
     });
   }, [words]);
-  //console.log(finding.results);
+
   const research = (event) => {
     let value = event.target.value;
     setWords((s) => value);
     setopacit(1);
-    value==""?setopacit(0):setopacit(1);
+    value === "" ? setopacit(0) : setopacit(1);
   };
 
   return (
@@ -33,12 +32,12 @@ export default function Header() {
       <div className=" col-10 nav navigation">
         <ul class="nav nav-pills">
           <li class="nav-item">
-            <NavLink activeClasseName="active" exact to="/">
+            <NavLink activeclasseName="active" exact to="/">
               CINEMA
             </NavLink>
           </li>
           <li class="nav-item">
-            <NavLink activeClasseName="active " exact to="/Serie/">
+            <NavLink activeclasseName="active " exact to="/Serie/">
               SERIE
             </NavLink>
           </li>
@@ -62,7 +61,6 @@ export default function Header() {
           </div>
           <div className="">
             <p>
-              {/* to={`/resulat/params:{{ ${finding}}}`} */}
               <Link
                 exact
                 to={{

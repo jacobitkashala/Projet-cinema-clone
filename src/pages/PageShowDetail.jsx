@@ -1,19 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import { RestDataSource } from "../webservice/RestDataSource";
 import logoProduction from "../image/spiderman_new_100px - Copie.png";
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
 import { FaArrowCircleLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { Modal } from "react-bootstrap";
-
-import ReactPlay from "react-player";
-import YouTubePlayer from "react-player/youtube";
 import Footer from "../componentShow/Footer";
 
 export default function PagePageShowDetail({ match }) {
   const [primaryInformation, setPrimaryInformation] = useState([]);
   const [actor, setActor] = useState([]);
-  const [isOpen, setIsOpen] = useState(false);
   const [video, setVideo] = useState();
   let idMovie = match.params.id;
 
