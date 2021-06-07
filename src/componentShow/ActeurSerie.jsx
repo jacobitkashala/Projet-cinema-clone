@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { RestDataSource } from "../webservice/RestDataSource";
 import ReactStars from "react-rating-stars-component";

@@ -23,7 +23,6 @@ export default function ListGenre({ clickBtngenre }) {
   return (
     <div className="container">
       <div className="row mt-3">
-        <h1></h1>
         <div className="col">
           <div className="list-inline-item">
             <div>

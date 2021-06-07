@@ -31,7 +31,8 @@ export default function PagePageShowDetail({ match }) {
         setActor(dataActor);
       });
     });
-  }, [idMovie]);
+  }, []);
+  
   if (video !== undefined) {
     var videoPlay = video;
     var key = videoPlay.key;
@@ -53,7 +54,8 @@ export default function PagePageShowDetail({ match }) {
               <img
                 className="img-fluid"
                 style={{ width: "100px", height: "100px" }}
-                src={urlImage + companie.logo_path}
+                src={logoProduit}
+              // src={}urlImage + companie.logo_path
                 alt={companie.name}
               />
             </td>
@@ -72,7 +74,7 @@ export default function PagePageShowDetail({ match }) {
     });
   }
   if (actor.crew !== undefined) {
-    var { crew, cast } = actor;
+    var {  cast } = actor;
     console.log(cast);
     var actors = cast.slice(0, 10).map((actor, index) => {
       return (

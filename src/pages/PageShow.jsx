@@ -21,10 +21,12 @@ export default function PageShow() {
       setContainsGenreData(data);
     });
   }, [id]);
+
   const clickBtngenre = (id) => {
     setIsClick(true);
     setId(id);
   };
+  
   return (
     <div>
       <Header />

@@ -5,6 +5,7 @@ import load from "../image/load1.jpeg";
 import { RestDataSource } from "../webservice/RestDataSource";
 
 export default function Header() {
+
   const [words, setWords] = useState("");
   const [finding, setFinding] = useState([]);
   const [opacit, setopacit] = useState(0);
@@ -15,7 +16,7 @@ export default function Header() {
     restDataSource.getData((data) => {
       setFinding(data);
     });
-  }, [words]);
+  }, []);
 
   const research = (event) => {
     let value = event.target.value;

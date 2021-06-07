@@ -1,22 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactStars from "react-rating-stars-component";
 import Footer from "../componentShow/Footer";
 import { FaArrowCircleLeft } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import noImage from "../image/Inconnue.jpg";
-import { RestDataSource } from "../webservice/RestDataSource";
+// import { RestDataSource } from "../webservice/RestDataSource";
 
 export default function PageResultat() {
   let dataResearch = useLocation();
-  const [idMovie, setIdMovie] = useState(1);
+ // const [idMovie, setIdMovie] = useState(1);
   const urlImage = "https://image.tmdb.org/t/p/w400/";
-  let totalPage = 1;
+  //let totalPage = 1;
   const displayMovie = (movieData) => {
     let listMovies = [];
 
-    if (movieData.results != undefined) {
+    if (movieData.results !== undefined) {
       const { results, total_pages } = movieData;
-      totalPage = total_pages;
+     // totalPage = total_pages;
       const movies = [...results];
       listMovies = movies.map((item, index) => {
         let imageFont =
