@@ -7,9 +7,15 @@ import PageShowDetail from "./pages/PageShowDetail";
 import PageResultat from "./pages/pageResultat";
 import Serie from "./pages/pageSerie";
 import Loader from "./Loader";
+
+
 const Home = () => {
+
+
   const [load, setLoad] = useState(true);
   
+ 
+
   setTimeout(() => {
     setLoad((b) => false);
   }, 4000);

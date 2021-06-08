@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { RestDataSource } from "../webservice/RestDataSource";
 import ReactStars from "react-rating-stars-component";
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 
 export default function TopMovies() {
+
   const [listTopMovie, setListTopmovie] = useState([]);
   const [pageNumber, setpageNumber] = useState(1);
   let topMovies = [];
@@ -13,7 +14,11 @@ export default function TopMovies() {
   const urlImage = "https://image.tmdb.org/t/p/w400/";
   const topMovieUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=c8697268acc5406f1d3c61343bbfd606&language=en-US&page=${pageNumber}`;
 
-  const restDataSource = new RestDataSource(topMovieUrl);
+  const restDataSource=useMemo(()=>{
+     const restDataSource = new RestDataSource(topMovieUrl);
+     return restDataSource;
+  },[topMovieUrl])
+ 
 
   useEffect(
     function () {
@@ -21,7 +26,7 @@ export default function TopMovies() {
         setListTopmovie(data);
       });
     },
-    [pageNumber]
+    [restDataSource]
   );
 
   const clickPreviousTopMovie = () => {

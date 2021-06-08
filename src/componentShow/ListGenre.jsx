@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { RestDataSource } from "../webservice/RestDataSource";
 
 export default function ListGenre({ clickBtngenre }) {
@@ -7,13 +7,16 @@ export default function ListGenre({ clickBtngenre }) {
 
   const [genreMovie, setGenreMovie] = useState([]);
 
+ const restDataSource=useMemo(()=>{
   const restDataSource = new RestDataSource(genreUrl);
+  return restDataSource
+ },[genreUrl])   
 
   useEffect(function () {
     restDataSource.getData((data) => {
       setGenreMovie(data);
     });
-  }, []);
+  }, [restDataSource]);
   let genres = [];
 
   if (genreMovie.genres !== undefined) {

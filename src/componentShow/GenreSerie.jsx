@@ -1,19 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { RestDataSource } from "../webservice/RestDataSource";
 
 export default function GenreSerie({ clickBtngenre }) {
+  
+  let genres = [];
   const urlGenreTv =
     "https://api.themoviedb.org/3/genre/tv/list?api_key=c8697268acc5406f1d3c61343bbfd606&language=en-US";
   const [genreTv, setGenreTv] = useState([]);
 
-  const restDataSource = new RestDataSource(urlGenreTv);
+  const restDataSource= useMemo(()=>{
+    const restDataSource = new RestDataSource(urlGenreTv);
+    return restDataSource;
+  },[urlGenreTv]) 
 
   useEffect(function () {
     restDataSource.getData((data) => {
       setGenreTv(data);
     });
-  }, []);
-  let genres = [];
+  }, [restDataSource]);
+  
 
   if (genreTv.genres !== undefined) {
     genres = [...genreTv.genres];
@@ -22,7 +27,7 @@ export default function GenreSerie({ clickBtngenre }) {
   return (
     <div className="container">
       <div className="row mt-3">
-        <h1></h1>
+      
         <div className="col">
           <div className="list-inline-item">
             <div>

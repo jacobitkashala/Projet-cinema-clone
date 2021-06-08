@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { RestDataSource } from "../webservice/RestDataSource";
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 
@@ -12,14 +12,27 @@ export default function Auteur() {
 
   const restDataSource = new RestDataSource(Urlactor);
 
-  useEffect(
-    function () {
-      restDataSource.getData((data) => {
-        setPersons(data);
-      });
-    },
-    [pageNumber]
-  );
+ ( async function () {
+    restDataSource.getData((data) => {
+      setPersons(data);
+    });
+  })(); 
+  // useEffect(
+  //   function () {
+  //     restDataSource.getData((data) => {
+  //       setPersons(data);
+  //     });
+  //   },
+  //   []
+  // );
+  //  useMemo(
+  //   () => {
+  //     restDataSource.getData((data) => {
+  //       setPersons(data);
+  //     }); 
+  //   },
+  //   [restDataSource],
+  // )
   const clickPreviousActor = () => {
     pageNumber === 1
       ? setpageNumber((pageCurrent) => pageCurrent * 1)

@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useEffect, useMemo, useState} from "react";
 import { RestDataSource } from "../webservice/RestDataSource";
 import logoProduction from "../image/spiderman_new_100px - Copie.png";
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
@@ -17,12 +17,20 @@ export default function PagePageShowDetail({ match }) {
   const urlCastCrew = `https://api.themoviedb.org/3/movie/${idMovie}/credits?api_key=c8697268acc5406f1d3c61343bbfd606&language=en-US`;
   const urlImage = "https://image.tmdb.org/t/p/w400/";
 
+ const {restDataSourcePInfo,restDataSourceVideo,restDataSourceCast}
+  = useMemo(()=>{  
+
   const restDataSourcePInfo = new RestDataSource(urlPrimaryInformation);
   const restDataSourceVideo = new RestDataSource(urlVideoMovie);
   const restDataSourceCast = new RestDataSource(urlCastCrew);
 
+  return{restDataSourcePInfo,restDataSourceVideo ,restDataSourceCast}
+  },[urlPrimaryInformation,urlVideoMovie,urlCastCrew])
+
+
   useEffect(() => {
-    restDataSourcePInfo.getData((data) => {
+
+      restDataSourcePInfo.getData((data) => {
       setPrimaryInformation(data);
       restDataSourceVideo.getData((dataMovie) => {
         setVideo(dataMovie.results[0]);
@@ -31,8 +39,11 @@ export default function PagePageShowDetail({ match }) {
         setActor(dataActor);
       });
     });
-  }, []);
   
+  },[restDataSourcePInfo,
+    restDataSourceVideo,
+    restDataSourceCast]);
+
   if (video !== undefined) {
     var videoPlay = video;
     var key = videoPlay.key;
@@ -55,7 +66,7 @@ export default function PagePageShowDetail({ match }) {
                 className="img-fluid"
                 style={{ width: "100px", height: "100px" }}
                 src={logoProduit}
-              // src={}urlImage + companie.logo_path
+              
                 alt={companie.name}
               />
             </td>
@@ -75,7 +86,7 @@ export default function PagePageShowDetail({ match }) {
   }
   if (actor.crew !== undefined) {
     var {  cast } = actor;
-    console.log(cast);
+    //console.log(cast);
     var actors = cast.slice(0, 10).map((actor, index) => {
       return (
         <div key={index} className="col-md-2 col-sm-4">
@@ -93,16 +104,16 @@ export default function PagePageShowDetail({ match }) {
   return (
     <div className="container">
       <div className="row mt-3">
-        <Link exact to={"/"}>
+        <Link  to={"/"}>
           <FaArrowCircleLeft className="fa" />
         </Link>
       </div>
       <div className="row mt-2 text-center">
-        <div class="ratio ratio-16x9">
+        <div className="ratio ratio-16x9">
           <iframe
             src={`https://www.youtube.com/embed/${key}?rel=0`}
             title="YouTube video"
-            allowfullscreen
+            allowFullScreen
           ></iframe>
         </div>
       </div>
@@ -125,7 +136,7 @@ export default function PagePageShowDetail({ match }) {
         <div className="col-4 ">
           <h2 style={{ fontWeight: "bolder" }}>PRODUCTION COMPANIE:</h2>
         </div>
-        <table class="table col-4 w-75 table-dark table-hover table-striped">
+        <table className="table col-4 w-75 table-dark table-hover table-striped">
           <thead>
             <tr>
               <th scope="col">#</th>

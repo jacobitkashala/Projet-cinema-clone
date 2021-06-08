@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
 import noImage from "../image/Inconnue.jpg";
 import { RestDataSource } from "../webservice/RestDataSource";
@@ -11,21 +11,25 @@ export default function PopularSerie({ containsGenreData, isClick }) {
   const listMovieUrl = `https://api.themoviedb.org/3/tv/popular?api_key=c8697268acc5406f1d3c61343bbfd606&language=en-US&page=${pageNumber}`;
   const urlImage = "https://image.tmdb.org/t/p/w400/";
   let totalPage = 0;
-  const restDataSource = new RestDataSource(listMovieUrl);
 
+ const restDataSource=useMemo(()=>{
+  const restDataSource = new RestDataSource(listMovieUrl);
+  return restDataSource;
+ },[listMovieUrl])
+  
   useEffect(
     function () {
       restDataSource.getData((data) => {
         setListMovie(data);
       });
     },
-    [pageNumber]
+    [restDataSource]
   );
 
   const displayMovie = (movieData) => {
     let listMovies = [];
 
-    if (movieData.results != undefined) {
+    if (movieData.results !== undefined) {
       const { results, total_pages } = movieData;
       totalPage = total_pages;
       const movies = [...results];

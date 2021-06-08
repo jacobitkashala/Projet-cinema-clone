@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React,{useState,useEffect, useMemo} from "react";
 import Header from "../componentShow/Header";
 import Footer from "../componentShow/Footer";
 import GenreSerie from "../componentShow/GenreSerie";
@@ -14,13 +14,17 @@ export default function PageSerie() {
 
   const movieGenreUrl = `https://api.themoviedb.org/3/discover/movie?api_key=c8697268acc5406f1d3c61343bbfd606&language=en-US&sort_by=popularity.asc&include_adult=false&include_video=false&page=1&with_genres=${id}&=&with_watch_monetization_types=flatrate`;
 
-  const restDataSource = new RestDataSource(movieGenreUrl);
+  const restDataSource=useMemo(()=>{ 
+    const restDataSource = new RestDataSource(movieGenreUrl);
+    return restDataSource;
+  },[movieGenreUrl])
+ 
 
   useEffect(() => {
     restDataSource.getData((data) => {
       setContainsGenreData(data);
     });
-  }, [id]);
+  },[restDataSource]);
   const clickBtngenre = (id) => {
     setIsClick(true);
     setId(id);

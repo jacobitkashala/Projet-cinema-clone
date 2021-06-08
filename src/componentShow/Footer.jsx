@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "@fortawesome/fontawesome-free";
 import {
   FaFacebookSquare,
@@ -20,7 +19,7 @@ export default function footer() {
             Bienvenue Chez Zender<span className="suffixe">Ciné</span>
           </h2>
           <p>
-            ZenderCiné est un produit de ZenderConcept, qui vous offre la
+            ZenderCiné est un produit de SmartConcept, qui vous offre la
             possibilté de voir les extraits de film
           </p>
         </div>
@@ -31,24 +30,22 @@ export default function footer() {
           <h2>Nous RENCONTRER</h2>
           <ul className="list-inline">
             <li className="">
-              <Link href="/" style={{ color: "#f4c10f" }}>
-                <span className="porto"> Recruteurs</span>
-              </Link>
+             
+                <span className="porto" style={{ color: "#f4c10f" }}> Recruteurs</span>
+            
             </li>
             <li className="">
-              <Link to="/">
+             
                 <span className="porto">Presse</span>
-              </Link>
+            
             </li>
             <li className="">
-              <Link to="/" style={{ color: "#f4c10f" }}>
-                <span className="porto"> Jobs</span>
-              </Link>
+              
+                <span className="porto" style={{ color: "#f4c10f" }}> Jobs</span>
+             
             </li>
             <li className="">
-              <Link to="/" style={{ color: "#f4c10f" }}>
-                <span className="porto">Contact </span>
-              </Link>
+                <span className="porto" style={{ color: "#f4c10f" }}>Contact </span>
             </li>
           </ul>
         </div>
@@ -57,12 +54,6 @@ export default function footer() {
           style={{ color: "#5a606b" }}
         >
           <h2>A propos</h2>
-          <Link>
-            <span className="porto">Nos réalisations </span>
-          </Link>
-          <Link>
-            <span className="porto">Qui sommes-nous? </span>{" "}
-          </Link>
         </div>
         <div className="col-md-3 col-sm-4" style={{ color: "#5a606b" }}>
           <p>Rester informer de tout ce que nous réalisons</p>
@@ -90,17 +81,17 @@ export default function footer() {
           <div className="row mt-3">
             <div style={{ color: "#f4c10f important" }}>
               <a href="https://web.facebook.com/jacob.kashala">
-                <FaFacebookSquare />: JacobitKashala
+                <FaFacebookSquare />: <span style={{fontSize:"24px"}}>JacobitKashala</span> 
               </a>
             </div>
             <div>
               <a href="http://">
-                <FaWhatsappSquare /> : +243815824641
+                <FaWhatsappSquare /> : <span style={{fontSize:"24px"}}> +243815824641</span> 
               </a>
             </div>
             <div>
               <a href="https://github.com/jacobitkashala">
-                <FaGithubSquare /> : JacobitKashala
+                <FaGithubSquare /> : <span style={{fontSize:"24px"}}>JacobitKashala</span>
               </a>
             </div>
           </div>

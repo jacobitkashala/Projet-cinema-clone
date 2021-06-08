@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { NavLink, Link } from "react-router-dom";
 import logo from "../image/logo.png";
 import load from "../image/load1.jpeg";
@@ -10,13 +10,17 @@ export default function Header() {
   const [finding, setFinding] = useState([]);
   const [opacit, setopacit] = useState(0);
   const urlResearch = `https://api.themoviedb.org/3/search/movie?api_key=c8697268acc5406f1d3c61343bbfd606&query=${words}`;
-  const restDataSource = new RestDataSource(urlResearch);
+  
+  const restDataSource=useMemo(()=>{
+    const restDataSource = new RestDataSource(urlResearch);
+    return restDataSource ; 
+  },[urlResearch])  
 
   useEffect(() => {
     restDataSource.getData((data) => {
       setFinding(data);
     });
-  }, []);
+  }, [restDataSource]);
 
   const research = (event) => {
     let value = event.target.value;
@@ -31,14 +35,15 @@ export default function Header() {
         <img className="img-fluid" src={logo} alt="le logo" />
       </div>
       <div className=" col-10 nav navigation">
-        <ul class="nav nav-pills">
-          <li class="nav-item">
-            <NavLink activeclasseName="active" exact to="/">
+        <ul className="nav nav-pills">
+          <li className="nav-item">
+            <NavLink  exact to="/">
+              {/* activeClassName="active" */}
               CINEMA
             </NavLink>
           </li>
-          <li class="nav-item">
-            <NavLink activeclasseName="active " exact to="/Serie/">
+          <li className="nav-item">
+            <NavLink exact to="/Serie/">
               SERIE
             </NavLink>
           </li>
@@ -48,12 +53,12 @@ export default function Header() {
             <input
               className=""
               type="text"
-              name=""
+             
               onChange={research}
               id="inputrecherch"
             />
             <img
-              classe="loaderImage"
+              className="loaderImage"
               style={{ opacity: opacit }}
               id="input"
               src={load}
@@ -63,7 +68,6 @@ export default function Header() {
           <div className="">
             <p>
               <Link
-                exact
                 to={{
                   pathname: "/resulat/",
                   state: {
