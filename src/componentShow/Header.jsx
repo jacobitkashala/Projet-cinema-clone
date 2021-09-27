@@ -38,7 +38,6 @@ export default function Header() {
         <ul className="nav nav-pills">
           <li className="nav-item">
             <NavLink  exact to="/">
-              {/* activeClassName="active" */}
               CINEMA
             </NavLink>
           </li>
@@ -82,5 +81,5 @@ export default function Header() {
         </div>
       </div>
     </div>
-  );
+  )
 }

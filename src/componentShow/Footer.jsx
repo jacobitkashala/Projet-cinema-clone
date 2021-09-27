@@ -27,32 +27,6 @@ export default function footer() {
           className="col-md-3 col-sm-4 presentation"
           style={{ color: "#5a606b" }}
         >
-          <h2>Nous RENCONTRER</h2>
-          <ul className="list-inline">
-            <li className="">
-             
-                <span className="porto" style={{ color: "#f4c10f" }}> Recruteurs</span>
-            
-            </li>
-            <li className="">
-             
-                <span className="porto">Presse</span>
-            
-            </li>
-            <li className="">
-              
-                <span className="porto" style={{ color: "#f4c10f" }}> Jobs</span>
-             
-            </li>
-            <li className="">
-                <span className="porto" style={{ color: "#f4c10f" }}>Contact </span>
-            </li>
-          </ul>
-        </div>
-        <div
-          className="col-md-3 col-sm-4 presentation"
-          style={{ color: "#5a606b" }}
-        >
           <h2>A propos</h2>
         </div>
         <div className="col-md-3 col-sm-4" style={{ color: "#5a606b" }}>
@@ -68,33 +42,6 @@ export default function footer() {
             Vous pouvez vous désabonner à tout moment.on n'est pas
             susceptibles,Promis
           </p>
-        </div>
-      </div>
-      <hr className="mt-5" style={{ borderTop: " 2px solide #5a606b" }}></hr>
-
-      <div className="row mt-3">
-        <div className="col-sm-6">
-          <h2>NOS PRODUITS </h2>
-        </div>
-        <div className="col-sm-6 ">
-          Suivez-nous :
-          <div className="row mt-3">
-            <div style={{ color: "#f4c10f important" }}>
-              <a href="https://web.facebook.com/jacob.kashala">
-                <FaFacebookSquare />: <span style={{fontSize:"24px"}}>JacobitKashala</span> 
-              </a>
-            </div>
-            <div>
-              <a href="http://">
-                <FaWhatsappSquare /> : <span style={{fontSize:"24px"}}> +243815824641</span> 
-              </a>
-            </div>
-            <div>
-              <a href="https://github.com/jacobitkashala">
-                <FaGithubSquare /> : <span style={{fontSize:"24px"}}>JacobitKashala</span>
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </div>

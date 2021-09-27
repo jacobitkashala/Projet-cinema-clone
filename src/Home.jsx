@@ -1,7 +1,5 @@
 import React,{useState} from "react";
 import { Route, Switch } from "react-router-dom";
-import "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
 import PageShow from "./pages/PageShow";
 import PageShowDetail from "./pages/PageShowDetail";
 import PageResultat from "./pages/pageResultat";
@@ -11,15 +9,12 @@ import Loader from "./Loader";
 
 const Home = () => {
 
-
   const [load, setLoad] = useState(true);
   
- 
-
   setTimeout(() => {
     setLoad((b) => false);
   }, 4000);
-
+console.log()
   return (
     <div>
       {load ? (
