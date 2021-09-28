@@ -89,9 +89,9 @@ export default function PopularSerie({ containsGenreData, isClick }) {
         </div>
       </div>
       <div className="row mt-3">
-        <h1 style={{ color: "#5a606b" }}>
-          Les emissions et série le mieux coté
-        </h1>
+        <h2 style={{ color: "#5a606b" }}>
+        Popularity
+        </h2>
       </div>
       <div className="row mt-3">{popularMovie}</div>
     </div>
