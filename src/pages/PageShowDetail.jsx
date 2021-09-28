@@ -1,10 +1,11 @@
-import React, { useEffect, useMemo, useState} from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { RestDataSource } from "../webservice/RestDataSource";
-import logoProduction from "../image/spiderman_new_100px - Copie.png";
+import logoProduction from "../image/index.jpg";
 import "react-bootstrap-carousel/dist/react-bootstrap-carousel.css";
 import { FaArrowCircleLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Footer from "../componentShow/Footer";
+import inconnue from "../image/Inconnue.jpg"
+// import Footer from "../componentShow/Footer";
 
 export default function PagePageShowDetail({ match }) {
   const [primaryInformation, setPrimaryInformation] = useState([]);
@@ -12,25 +13,25 @@ export default function PagePageShowDetail({ match }) {
   const [video, setVideo] = useState();
   let idMovie = match.params.id;
 
-  const urlVideoMovie = `https://api.themoviedb.org/3/movie/${idMovie}/videos?api_key=c8697268acc5406f1d3c61343bbfd606&language=en-US`;
-  const urlPrimaryInformation = `https://api.themoviedb.org/3/movie/${idMovie}?api_key=c8697268acc5406f1d3c61343bbfd606&language=en-US`;
-  const urlCastCrew = `https://api.themoviedb.org/3/movie/${idMovie}/credits?api_key=c8697268acc5406f1d3c61343bbfd606&language=en-US`;
+  const urlVideoMovie = `https://api.themoviedb.org/3/movie/${idMovie}/videos?api_key=${process.env.REACT_APP_AMOVIE_API_KEY}&language=en-US`;
+  const urlPrimaryInformation = `https://api.themoviedb.org/3/movie/${idMovie}?api_key=${process.env.REACT_APP_AMOVIE_API_KEY}&language=en-US`;
+  const urlCastCrew = `https://api.themoviedb.org/3/movie/${idMovie}/credits?api_key=${process.env.REACT_APP_AMOVIE_API_KEY}&language=en-US`;
   const urlImage = "https://image.tmdb.org/t/p/w400/";
 
- const {restDataSourcePInfo,restDataSourceVideo,restDataSourceCast}
-  = useMemo(()=>{  
+  const { restDataSourcePInfo, restDataSourceVideo, restDataSourceCast }
+    = useMemo(() => {
 
-  const restDataSourcePInfo = new RestDataSource(urlPrimaryInformation);
-  const restDataSourceVideo = new RestDataSource(urlVideoMovie);
-  const restDataSourceCast = new RestDataSource(urlCastCrew);
+      const restDataSourcePInfo = new RestDataSource(urlPrimaryInformation);
+      const restDataSourceVideo = new RestDataSource(urlVideoMovie);
+      const restDataSourceCast = new RestDataSource(urlCastCrew);
 
-  return{restDataSourcePInfo,restDataSourceVideo ,restDataSourceCast}
-  },[urlPrimaryInformation,urlVideoMovie,urlCastCrew])
+      return { restDataSourcePInfo, restDataSourceVideo, restDataSourceCast }
+    }, [urlPrimaryInformation, urlVideoMovie, urlCastCrew])
 
 
   useEffect(() => {
 
-      restDataSourcePInfo.getData((data) => {
+    restDataSourcePInfo.getData((data) => {
       setPrimaryInformation(data);
       restDataSourceVideo.getData((dataMovie) => {
         setVideo(dataMovie.results[0]);
@@ -39,8 +40,8 @@ export default function PagePageShowDetail({ match }) {
         setActor(dataActor);
       });
     });
-  
-  },[restDataSourcePInfo,
+
+  }, [restDataSourcePInfo,
     restDataSourceVideo,
     restDataSourceCast]);
 
@@ -66,7 +67,7 @@ export default function PagePageShowDetail({ match }) {
                 className="img-fluid"
                 style={{ width: "100px", height: "100px" }}
                 src={logoProduit}
-              
+
                 alt={companie.name}
               />
             </td>
@@ -85,14 +86,19 @@ export default function PagePageShowDetail({ match }) {
     });
   }
   if (actor.crew !== undefined) {
-    var {  cast } = actor;
+    var { cast } = actor;
     //console.log(cast);
-    var actors = cast.slice(0, 10).map((actor, index) => {
+    var actors = cast.map((actor, index) => {
+      const imageCast =
+      actor.profile_path == null
+        ? inconnue
+        : urlImage + actor.profile_path;
+
       return (
         <div key={index} className="col-md-2 col-sm-4">
           <img
             className="img-fluid"
-            src={urlImage + actor.profile_path}
+            src={imageCast}
             alt={actor.name}
           />
           <h5 style={{ fontWeight: "border" }}>{actor.name} </h5>
@@ -104,7 +110,7 @@ export default function PagePageShowDetail({ match }) {
   return (
     <div className="container">
       <div className="row mt-3">
-        <Link  to={"/"}>
+        <Link to={"/"}>
           <FaArrowCircleLeft className="fa" />
         </Link>
       </div>
@@ -133,15 +139,15 @@ export default function PagePageShowDetail({ match }) {
       </div>
 
       <div className="row mt-3  ">
-        <div className="col-4 ">
-          <h2 style={{ fontWeight: "bolder" }}>PRODUCTION COMPANIE:</h2>
+        <div className="col-12 ">
+          <h2 >COMPANIE PRODUCTION :</h2>
         </div>
-        <table className="table col-4 w-75 table-dark table-hover table-striped">
+        <table className="table col-10 w-50 table-dark table-hover table-striped">
           <thead>
             <tr>
               <th scope="col">#</th>
               <th scope="col">Name</th>
-              <th scope="col">Pays</th>
+              <th scope="col">Origin country</th>
               <th scope="col">Logo</th>
             </tr>
           </thead>
@@ -149,11 +155,8 @@ export default function PagePageShowDetail({ match }) {
         </table>
       </div>
       <div className="row mt-3">
-        <h2>Acteurs</h2>
+        <h2>cast</h2>
         {actors}
-      </div>
-      <div className="row mt">
-        <Footer />
       </div>
     </div>
   );

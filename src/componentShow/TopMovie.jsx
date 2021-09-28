@@ -12,7 +12,7 @@ export default function TopMovies() {
   let totalPage = 0;
 
   const urlImage = "https://image.tmdb.org/t/p/w400/";
-  const topMovieUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=c8697268acc5406f1d3c61343bbfd606&language=en-US&page=${pageNumber}`;
+  const topMovieUrl = `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_AMOVIE_API_KEY}&language=en-US&page=${pageNumber}`;
 
   const restDataSource=useMemo(()=>{
      const restDataSource = new RestDataSource(topMovieUrl);

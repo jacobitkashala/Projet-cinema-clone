@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { RestDataSource } from "../webservice/RestDataSource";
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 
@@ -7,32 +7,16 @@ export default function Auteur() {
   const [pageNumber, setpageNumber] = useState(1);
   let totalPage = 0;
   let listPersons = [];
-  const Urlactor = `https://api.themoviedb.org/3/trending/person/week?api_key=c8697268acc5406f1d3c61343bbfd606&page=${pageNumber}`;
+  const Urlactor = `https://api.themoviedb.org/3/trending/person/week?api_key=${process.env.REACT_APP_AMOVIE_API_KEY}&page=${pageNumber}`;
   const urlImage = "https://image.tmdb.org/t/p/w400/";
 
   const restDataSource = new RestDataSource(Urlactor);
 
- ( async function () {
+  (async function () {
     restDataSource.getData((data) => {
       setPersons(data);
     });
-  })(); 
-  // useEffect(
-  //   function () {
-  //     restDataSource.getData((data) => {
-  //       setPersons(data);
-  //     });
-  //   },
-  //   []
-  // );
-  //  useMemo(
-  //   () => {
-  //     restDataSource.getData((data) => {
-  //       setPersons(data);
-  //     }); 
-  //   },
-  //   [restDataSource],
-  // )
+  })();
   const clickPreviousActor = () => {
     pageNumber === 1
       ? setpageNumber((pageCurrent) => pageCurrent * 1)
@@ -49,7 +33,7 @@ export default function Auteur() {
     totalPage = total_pages;
     listPersons = results.slice(0, 8).map((item, index) => {
       return (
-        <div className="col-md-3 col-sm-6 text-center" key={index}>
+        <div className="col-md-3 col-sm-3 text-center" key={index}>
           <img
             className="img-fluid "
             src={urlImage + item.profile_path}
@@ -57,7 +41,7 @@ export default function Auteur() {
           />
           <p
             className="font-weigth-bold text-center"
-            style={{ fontSize: "1.5rem" }}
+            style={{ fontSize: "1.1rem" }}
           >
             {item.name}{" "}
           </p>
@@ -90,7 +74,7 @@ export default function Auteur() {
       <div className="row mt-3">
         <div className="col">
           <h1 className="font-weight-bold" style={{ color: "#5a606b" }}>
-            Les Acteurs de la semaine
+            person
           </h1>
         </div>
       </div>

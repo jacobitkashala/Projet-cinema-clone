@@ -8,7 +8,7 @@ import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 export default function PopularSerie({ containsGenreData, isClick }) {
   const [listMovie, setListMovie] = useState([]);
   const [pageNumber, setpageNumber] = useState(1);
-  const listMovieUrl = `https://api.themoviedb.org/3/tv/popular?api_key=c8697268acc5406f1d3c61343bbfd606&language=en-US&page=${pageNumber}`;
+  const listMovieUrl = `https://api.themoviedb.org/3/tv/popular?api_key=${process.env.REACT_APP_AMOVIE_API_KEY}&language=en-US&page=${pageNumber}`;
   const urlImage = "https://image.tmdb.org/t/p/w400/";
   let totalPage = 0;
 

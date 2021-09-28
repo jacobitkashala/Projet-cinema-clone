@@ -11,7 +11,7 @@ export default function TopMovies() {
   let totalPage = 0;
 
   const urlImage = "https://image.tmdb.org/t/p/w400/";
-  const topMovieUrl = `https://api.themoviedb.org/3/trending/movie/day?api_key=c8697268acc5406f1d3c61343bbfd606&page=${pageNumber}`;
+  const topMovieUrl = `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_AMOVIE_API_KEY}&page=${pageNumber}`;
   var restDataSource;
 
   restDataSource = new RestDataSource(topMovieUrl);

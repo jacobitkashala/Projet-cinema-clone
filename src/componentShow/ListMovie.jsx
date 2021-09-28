@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
+// import dotEnv form "do";
 import { Link } from "react-router-dom";
 import noImage from "../image/Inconnue.jpg";
 import { RestDataSource } from "../webservice/RestDataSource";
@@ -6,19 +7,20 @@ import ReactStars from "react-rating-stars-component";
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 
 export default function ListMovie({ containsGenreData, isClick }) {
-  
+
   const [listMovie, setListMovie] = useState([]);
   const [pageNumber, setpageNumber] = useState(1);
-  const listMovieUrl = `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.Movie_API_Key}&language=en-US&page=${pageNumber}`;
+  const listMovieUrl = `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_AMOVIE_API_KEY}&language=en-US&page=${pageNumber}`;
   const urlImage = "https://image.tmdb.org/t/p/w400/";
   let totalPage = 0;
 
- const restDataSource=useMemo(()=>{
-  const restDataSource = new RestDataSource(listMovieUrl);
-  return restDataSource;
- },[listMovieUrl])
-  
-  
+  console.log(process.env.REACT_APP_AMOVIE_API_KEY);
+  const restDataSource = useMemo(() => {
+    const restDataSource = new RestDataSource(listMovieUrl);
+    return restDataSource;
+  }, [listMovieUrl])
+
+
   useEffect(
     function () {
       restDataSource.getData((data) => {
@@ -35,12 +37,12 @@ export default function ListMovie({ containsGenreData, isClick }) {
       const { results, total_pages } = movieData;
       totalPage = total_pages;
       const movies = [...results];
-      listMovies = movies.slice(0, 8).map((item, index) => {
+      listMovies = movies.slice(0, 12).map((item, index) => {
         let imageFont =
           item.backdrop_path == null ? noImage : urlImage + item.backdrop_path;
         return (
           <div className="col-md-3 col-sm-6" key={index}>
-            <Link  to={`/movie/${item.id}`}>
+            <Link to={`/movie/${item.id}`}>
               <img className="img-fluid" src={imageFont} alt={item.title} />
             </Link>
             <div className="mt-3">
@@ -75,7 +77,7 @@ export default function ListMovie({ containsGenreData, isClick }) {
   let popularMovie = isClick
     ? displayMovie(containsGenreData)
     : displayMovie(listMovie);
-  
+
   return (
     <div>
       <div className="row mt-3">

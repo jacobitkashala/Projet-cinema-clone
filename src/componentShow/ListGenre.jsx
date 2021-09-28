@@ -3,7 +3,7 @@ import { RestDataSource } from "../webservice/RestDataSource";
 
 export default function ListGenre({ clickBtngenre }) {
   const genreUrl =
-    "https://api.themoviedb.org/3/genre/movie/list?api_key=c8697268acc5406f1d3c61343bbfd606&language=en-US";
+   ` https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_AMOVIE_API_KEY}&language=en-US`;
 
   const [genreMovie, setGenreMovie] = useState([]);
 

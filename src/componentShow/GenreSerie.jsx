@@ -4,14 +4,12 @@ import { RestDataSource } from "../webservice/RestDataSource";
 export default function GenreSerie({ clickBtngenre }) {
   
   let genres = [];
-  const urlGenreTv =
-    "https://api.themoviedb.org/3/genre/tv/list?api_key=c8697268acc5406f1d3c61343bbfd606&language=en-US";
   const [genreTv, setGenreTv] = useState([]);
 
   const restDataSource= useMemo(()=>{
-    const restDataSource = new RestDataSource(urlGenreTv);
+    const restDataSource = new RestDataSource(`https://api.themoviedb.org/3/genre/tv/list?api_key=${process.env.REACT_APP_AMOVIE_API_KEY}&language=en-US`);
     return restDataSource;
-  },[urlGenreTv]) 
+  },[]) 
 
   useEffect(function () {
     restDataSource.getData((data) => {
