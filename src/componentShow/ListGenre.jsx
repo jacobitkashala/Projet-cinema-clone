@@ -1,21 +1,12 @@
-import React, { useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { toGetGenreMovie } from '../Redux/reducerGenre'
-export default function ListGenre({ clickBtngenre }) {
-  const [genreMovie, setGenreMovie] = useState([])
-  const dataGenreMovie = useSelector((state) => state.genreMovie)
-  const dispatch = useDispatch()
-  // const [dataGenre, setDataGene] = useState('')
-  console.log(dataGenreMovie)
+import React from 'react'
 
-  useEffect(() => {
-    dispatch(toGetGenreMovie())
-  }, [dispatch])
+export default function ListGenre({ clickBtngenre, dataGenre }) {
+  // console.log(dataGenre)
 
   let genres = []
 
-  if (genreMovie.genres !== undefined) {
-    genres = [...genreMovie.genres]
+  if (dataGenre !== undefined) {
+    genres = [...dataGenre]
   }
 
   return (

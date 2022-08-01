@@ -1,26 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../componentShow/Header'
 import Listgenre from '../componentShow/ListGenre'
-// import { RestDataSource } from '../webservice/RestDataSource'
-import Listmovie from '../componentShow/ListMovie'
-import Auteur from '../componentShow/Auteur'
-import TopMovies from '../componentShow/TopMovie'
-import Footer from '../componentShow/Footer'
+// import Listmovie from '../componentShow/ListMovie'
+// import Auteur from '../componentShow/Auteur'
+// import TopMovies from '../componentShow/TopMovie'
+// import Footer from '../componentShow/Footer'
 import { useDispatch, useSelector } from 'react-redux'
 import { toGetGenreMovie } from '../Redux/reducerGenre'
 import Loader from './../Loader'
+
 export default function HomePage() {
   const [id, setId] = useState('')
-  const [dataGenre, setDataGene] = useState('')
-  const [load, setLoading] = useState(true)
-
-  const [containsGenreData, setContainsGenreData] = useState([])
+  const [load, setLoading] = useState(false)
   const [isClick, setIsClick] = useState(false)
+  const [dataGenre, setDataGene] = useState([])
+  const [containsGenreData, setContainsGenreData] = useState([])
+  const dataGereMovieGet = useSelector((state) => state.genreMovie)
 
-  const data = useSelector((state) => state.genreMovie)
-  console.log(data)
   const dispatch = useDispatch()
-
+  const { genres } = dataGereMovieGet
 
   useEffect(() => {
     dispatch(toGetGenreMovie())
@@ -31,20 +29,25 @@ export default function HomePage() {
     setId(id)
   }
 
+  if (genres != undefined) {
+    // console.log(genres)
+    // setLoading((prevState) => false)
+  }
+
   return (
     <>
       {load ? (
         <>
-          <Loader/>
+          <Loader />
         </>
       ) : (
         <>
           <Header />
-          <Listgenre clickBtngenre={clickBtngenre} dataGenre={dataGenre} />
-          <Listmovie containsGenreData={containsGenreData} isClick={isClick} />
+          <Listgenre clickBtngenre={clickBtngenre} dataGenre={genres} />
+          {/* <Listmovie containsGenreData={containsGenreData} isClick={isClick} />
           <Auteur />
           <TopMovies />
-          <Footer />
+          <Footer /> */}
         </>
       )}
     </>

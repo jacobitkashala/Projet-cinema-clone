@@ -9,12 +9,13 @@ import HomePage from './pages/HomePage.jsx'
 const Home = () => {
   return (
     <main className="container">
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        {/* <Route path="/movie/:id" component={PageShowDetail} />
+      <HomePage />
+      {/* <Switch>
+        <Route exact path="/" component={HomePage} /> */}
+      {/* <Route path="/movie/:id" component={PageShowDetail} />
         <Route path="/Serie/" component={Serie} />
         <Route path="/resulat/" component={PageResultat} /> */}
-      </Switch>
+      {/* </Switch> */}
     </main>
   )
 }
