@@ -1,26 +1,21 @@
-import React, { useState, useEffect, useMemo } from "react";
-import { RestDataSource } from "../webservice/RestDataSource";
-
+import React, { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { toGetGenreMovie } from '../Redux/reducerGenre'
 export default function ListGenre({ clickBtngenre }) {
-  const genreUrl =
-   `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_AMOVIE_API_KEY}&language=en-US`;
+  const [genreMovie, setGenreMovie] = useState([])
+  const dataGenreMovie = useSelector((state) => state.genreMovie)
+  const dispatch = useDispatch()
+  // const [dataGenre, setDataGene] = useState('')
+  console.log(dataGenreMovie)
 
-  const [genreMovie, setGenreMovie] = useState([]);
+  useEffect(() => {
+    dispatch(toGetGenreMovie())
+  }, [dispatch])
 
- const restDataSource=useMemo(()=>{
-  const restDataSource = new RestDataSource(genreUrl);
-  return restDataSource
- },[genreUrl])   
-
-  useEffect(function () {
-    restDataSource.getData((data) => {
-      setGenreMovie(data);
-    });
-  }, [restDataSource]);
-  let genres = [];
+  let genres = []
 
   if (genreMovie.genres !== undefined) {
-    genres = [...genreMovie.genres];
+    genres = [...genreMovie.genres]
   }
 
   return (
@@ -35,7 +30,7 @@ export default function ListGenre({ clickBtngenre }) {
                   type="button"
                   className="btn btn-outline-info"
                   onClick={() => {
-                    clickBtngenre(item.id); //diplayMoviesWithGenre
+                    clickBtngenre(item.id) //diplayMoviesWithGenre
                   }}
                 >
                   {item.name}
@@ -46,5 +41,5 @@ export default function ListGenre({ clickBtngenre }) {
         </div>
       </div>
     </div>
-  );
+  )
 }

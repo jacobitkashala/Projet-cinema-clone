@@ -1,31 +1,30 @@
-import React, { useEffect, useState, useMemo } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../componentShow/Header'
 import Listgenre from '../componentShow/ListGenre'
-import { RestDataSource } from '../webservice/RestDataSource'
+// import { RestDataSource } from '../webservice/RestDataSource'
 import Listmovie from '../componentShow/ListMovie'
 import Auteur from '../componentShow/Auteur'
 import TopMovies from '../componentShow/TopMovie'
 import Footer from '../componentShow/Footer'
-
-export default function PageShow() {
+import { useDispatch, useSelector } from 'react-redux'
+import { toGetGenreMovie } from '../Redux/reducerGenre'
+import Loader from './../Loader'
+export default function HomePage() {
   const [id, setId] = useState('')
+  const [dataGenre, setDataGene] = useState('')
+  const [load, setLoading] = useState(true)
+
   const [containsGenreData, setContainsGenreData] = useState([])
   const [isClick, setIsClick] = useState(false)
-  const {REACT_APP_API_KEY} = process.env
-  // console.log(REACT_APP_API_KEY)
 
-  const movieGenreUrl = `https://api.themoviedb.org/3/discover/movie?api_key=${REACT_APP_API_KEY}&language=en-US&sort_by=popularity.asc&include_adult=false&include_video=false&page=1&with_genres=${id}&=&with_watch_monetization_types=flatrate`
+  const data = useSelector((state) => state.genreMovie)
+  console.log(data)
+  const dispatch = useDispatch()
 
-  const restDataSource = useMemo(() => {
-    const restData = new RestDataSource(movieGenreUrl)
-    return restData
-  }, [movieGenreUrl])
 
   useEffect(() => {
-    restDataSource.getData((data) => {
-      setContainsGenreData(data)
-    })
-  }, [restDataSource])
+    dispatch(toGetGenreMovie())
+  }, [dispatch])
 
   const clickBtngenre = (id) => {
     setIsClick(true)
@@ -33,13 +32,21 @@ export default function PageShow() {
   }
 
   return (
-    <div>
-      <Header />
-      <Listgenre clickBtngenre={clickBtngenre} />
-      <Listmovie containsGenreData={containsGenreData} isClick={isClick} />
-      <Auteur />
-      <TopMovies />
-      <Footer />
-    </div>
+    <>
+      {load ? (
+        <>
+          <Loader/>
+        </>
+      ) : (
+        <>
+          <Header />
+          <Listgenre clickBtngenre={clickBtngenre} dataGenre={dataGenre} />
+          <Listmovie containsGenreData={containsGenreData} isClick={isClick} />
+          <Auteur />
+          <TopMovies />
+          <Footer />
+        </>
+      )}
+    </>
   )
 }
