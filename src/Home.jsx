@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+// import { Route, Switch } from 'react-router-dom'
 import HomePage from './pages/HomePage.jsx'
 // import PageShowDetail from './pages/PageShowDetail'
 // import PageResultat from './pages/pageResultat'

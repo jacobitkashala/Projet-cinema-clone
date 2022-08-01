@@ -8,9 +8,7 @@
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
-    "@xstate/inspect": "^0.7.0",
     "@xstate/react": "^3.0.0",
-    "@xstate/test": "^0.5.1",
     "axios": "^0.21.1",
     "bootstrap": "^5.0.0",
     "bootstrap-icons": "^1.5.0",
@@ -27,7 +25,6 @@
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "react-loader-spinner": "^4.0.0",
-    "react-paginate": "^7.1.2",
     "react-player": "^2.9.0",
     "react-rating": "^2.0.5",
     "react-rating-stars-component": "^2.2.0",
@@ -35,8 +32,7 @@
     "react-responsive-carousel": "^3.2.18",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-    "web-vitals": "^1.1.1",
-    "xstate": "^4.32.1"
+    "web-vitals": "^1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
