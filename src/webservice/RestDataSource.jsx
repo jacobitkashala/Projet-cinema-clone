@@ -2,18 +2,6 @@ import Axios from "axios";
 
 export class RestDataSource {
   
-  // all=[];
-  // get data(all){
-  //   this.all=all;
-  // }
-  // set data(){
-  //   this.getData(d=>{
-  //     this.data(d)
-  //   })
-  // }
-  // static status(){
-  //   return data?false:true
-  // }
 
   constructor(base_url) {
     this.BASE_URL = base_url;

@@ -14,7 +14,6 @@ export default function PageResultat() {
   //let totalPage = 1;
   const displayMovie = (movieData) => {
     let listMovies = [];
-
     if (movieData.results !== undefined) {
       const { results} = movieData;
      // totalPage = total_pages;
@@ -47,7 +46,7 @@ export default function PageResultat() {
     }
     return listMovies;
   };
-  console.log(dataResearch.state.dataReseach);
+  // console.log(dataResearch.state.dataReseach);
   
   let Resultat = displayMovie(dataResearch.state.dataReseach);
   return (
