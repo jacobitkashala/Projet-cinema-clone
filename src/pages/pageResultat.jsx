@@ -1,6 +1,6 @@
 import React from "react";
 import ReactStars from "react-rating-stars-component";
-import Footer from "../componentShow/Footer";
+import Footer from "../components/Footer";
 import { FaArrowCircleLeft } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import noImage from "../image/Inconnue.jpg";

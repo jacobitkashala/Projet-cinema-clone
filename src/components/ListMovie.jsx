@@ -14,7 +14,7 @@ export default function ListMovie({ containsGenreData, isClick }) {
   const urlImage = "https://image.tmdb.org/t/p/w400/";
   let totalPage = 0;
 
-  console.log(process.env.REACT_APP_AMOVIE_API_KEY);
+  //console.log(process.env.REACT_APP_AMOVIE_API_KEY);
   const restDataSource = useMemo(() => {
     const restDataSource = new RestDataSource(listMovieUrl);
     return restDataSource;
